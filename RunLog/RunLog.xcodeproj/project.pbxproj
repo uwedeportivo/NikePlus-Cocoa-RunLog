@@ -1,0 +1,351 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C61834761249BCB500D98D12 /* CDMURLFetcher.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C61834741249BCB500D98D12 /* CDMURLFetcher.h */; };
+		C61834771249BCB500D98D12 /* CDMURLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C61834751249BCB500D98D12 /* CDMURLFetcher.m */; };
+		C6486E4C1237F67100C6E29F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6486E4B1237F67100C6E29F /* Cocoa.framework */; };
+		C6486E511237F67100C6E29F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6486E4F1237F67100C6E29F /* InfoPlist.strings */; };
+		C6486E531237F67100C6E29F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6486E521237F67100C6E29F /* main.m */; };
+		C6486E561237F67100C6E29F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6486E541237F67100C6E29F /* MainMenu.xib */; };
+		C6486E591237F67100C6E29F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C6486E571237F67100C6E29F /* Credits.rtf */; };
+		C6486E5C1237F67100C6E29F /* RunLogAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6486E5B1237F67100C6E29F /* RunLogAppDelegate.m */; };
+		C6486E5E1237F67100C6E29F /* RunLogDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = C6486E5D1237F67100C6E29F /* RunLogDataModel.xcdatamodel */; };
+		C6486E681237F83700C6E29F /* NikePlus.icns in Resources */ = {isa = PBXBuildFile; fileRef = C6486E671237F83700C6E29F /* NikePlus.icns */; };
+		C6486E761238031500C6E29F /* CDMXML.m in Sources */ = {isa = PBXBuildFile; fileRef = C6486E751238031500C6E29F /* CDMXML.m */; };
+		C6486E7D123821CA00C6E29F /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6486E7C123821CA00C6E29F /* CorePlot.framework */; };
+		C6486E7F123822DB00C6E29F /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6486E7C123821CA00C6E29F /* CorePlot.framework */; };
+		C6486E821238583900C6E29F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6486E811238583900C6E29F /* QuartzCore.framework */; };
+		C6486E851238598000C6E29F /* CDMRunData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6486E831238598000C6E29F /* CDMRunData.h */; };
+		C6486E861238598000C6E29F /* CDMRunData.m in Sources */ = {isa = PBXBuildFile; fileRef = C6486E841238598000C6E29F /* CDMRunData.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C6486E7E1238229500C6E29F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C6486E7F123822DB00C6E29F /* CorePlot.framework in CopyFiles */,
+				C6486E851238598000C6E29F /* CDMRunData.h in CopyFiles */,
+				C61834761249BCB500D98D12 /* CDMURLFetcher.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C61834741249BCB500D98D12 /* CDMURLFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMURLFetcher.h; sourceTree = "<group>"; };
+		C61834751249BCB500D98D12 /* CDMURLFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMURLFetcher.m; sourceTree = "<group>"; };
+		C6486E481237F67100C6E29F /* RunLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6486E4B1237F67100C6E29F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C6486E4D1237F67100C6E29F /* RunLog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RunLog-Info.plist"; sourceTree = "<group>"; };
+		C6486E4E1237F67100C6E29F /* RunLog_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunLog_Prefix.pch; sourceTree = "<group>"; };
+		C6486E501237F67100C6E29F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C6486E521237F67100C6E29F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C6486E551237F67100C6E29F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C6486E581237F67100C6E29F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		C6486E5A1237F67100C6E29F /* RunLogAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunLogAppDelegate.h; sourceTree = "<group>"; };
+		C6486E5B1237F67100C6E29F /* RunLogAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunLogAppDelegate.m; sourceTree = "<group>"; };
+		C6486E5D1237F67100C6E29F /* RunLogDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunLogDataModel.xcdatamodel; sourceTree = "<group>"; };
+		C6486E671237F83700C6E29F /* NikePlus.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NikePlus.icns; sourceTree = "<group>"; };
+		C6486E741238031500C6E29F /* CDMXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMXML.h; sourceTree = "<group>"; };
+		C6486E751238031500C6E29F /* CDMXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMXML.m; sourceTree = "<group>"; };
+		C6486E7C123821CA00C6E29F /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = /Users/uwe/Library/Frameworks/CorePlot.framework; sourceTree = "<absolute>"; };
+		C6486E811238583900C6E29F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C6486E831238598000C6E29F /* CDMRunData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMRunData.h; sourceTree = "<group>"; };
+		C6486E841238598000C6E29F /* CDMRunData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMRunData.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C6486E451237F67100C6E29F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6486E4C1237F67100C6E29F /* Cocoa.framework in Frameworks */,
+				C6486E7D123821CA00C6E29F /* CorePlot.framework in Frameworks */,
+				C6486E821238583900C6E29F /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C6486E381237F67100C6E29F = {
+			isa = PBXGroup;
+			children = (
+				C6486E671237F83700C6E29F /* NikePlus.icns */,
+				C6486E3F1237F67100C6E29F /* Models */,
+				C6486E401237F67100C6E29F /* Classes */,
+				C6486E411237F67100C6E29F /* Other Sources */,
+				C6486E421237F67100C6E29F /* Resources */,
+				C6486E431237F67100C6E29F /* Frameworks */,
+				C6486E491237F67100C6E29F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C6486E3F1237F67100C6E29F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C6486E5D1237F67100C6E29F /* RunLogDataModel.xcdatamodel */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C6486E401237F67100C6E29F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C61834741249BCB500D98D12 /* CDMURLFetcher.h */,
+				C61834751249BCB500D98D12 /* CDMURLFetcher.m */,
+				C6486E831238598000C6E29F /* CDMRunData.h */,
+				C6486E841238598000C6E29F /* CDMRunData.m */,
+				C6486E741238031500C6E29F /* CDMXML.h */,
+				C6486E751238031500C6E29F /* CDMXML.m */,
+				C6486E5A1237F67100C6E29F /* RunLogAppDelegate.h */,
+				C6486E5B1237F67100C6E29F /* RunLogAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C6486E411237F67100C6E29F /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C6486E4E1237F67100C6E29F /* RunLog_Prefix.pch */,
+				C6486E521237F67100C6E29F /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		C6486E421237F67100C6E29F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C6486E4D1237F67100C6E29F /* RunLog-Info.plist */,
+				C6486E4F1237F67100C6E29F /* InfoPlist.strings */,
+				C6486E541237F67100C6E29F /* MainMenu.xib */,
+				C6486E571237F67100C6E29F /* Credits.rtf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C6486E431237F67100C6E29F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6486E811238583900C6E29F /* QuartzCore.framework */,
+				C6486E7C123821CA00C6E29F /* CorePlot.framework */,
+				C6486E4B1237F67100C6E29F /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6486E491237F67100C6E29F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6486E481237F67100C6E29F /* RunLog.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C6486E471237F67100C6E29F /* RunLog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6486E611237F67100C6E29F /* Build configuration list for PBXNativeTarget "RunLog" */;
+			buildPhases = (
+				C6486E441237F67100C6E29F /* Sources */,
+				C6486E451237F67100C6E29F /* Frameworks */,
+				C6486E461237F67100C6E29F /* Resources */,
+				C6486E7E1238229500C6E29F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RunLog;
+			productName = RunLog;
+			productReference = C6486E481237F67100C6E29F /* RunLog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C6486E3A1237F67100C6E29F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = codemanic;
+			};
+			buildConfigurationList = C6486E3D1237F67100C6E29F /* Build configuration list for PBXProject "RunLog" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = C6486E381237F67100C6E29F;
+			productRefGroup = C6486E491237F67100C6E29F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C6486E471237F67100C6E29F /* RunLog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C6486E461237F67100C6E29F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6486E511237F67100C6E29F /* InfoPlist.strings in Resources */,
+				C6486E561237F67100C6E29F /* MainMenu.xib in Resources */,
+				C6486E591237F67100C6E29F /* Credits.rtf in Resources */,
+				C6486E681237F83700C6E29F /* NikePlus.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C6486E441237F67100C6E29F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6486E531237F67100C6E29F /* main.m in Sources */,
+				C6486E5C1237F67100C6E29F /* RunLogAppDelegate.m in Sources */,
+				C6486E5E1237F67100C6E29F /* RunLogDataModel.xcdatamodel in Sources */,
+				C6486E761238031500C6E29F /* CDMXML.m in Sources */,
+				C6486E861238598000C6E29F /* CDMRunData.m in Sources */,
+				C61834771249BCB500D98D12 /* CDMURLFetcher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C6486E4F1237F67100C6E29F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6486E501237F67100C6E29F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C6486E541237F67100C6E29F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6486E551237F67100C6E29F /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		C6486E571237F67100C6E29F /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6486E581237F67100C6E29F /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C6486E5F1237F67100C6E29F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C6486E601237F67100C6E29F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		C6486E621237F67100C6E29F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = RunLog_Prefix.pch;
+				INFOPLIST_FILE = "RunLog-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = RunLog;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C6486E631237F67100C6E29F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = RunLog_Prefix.pch;
+				INFOPLIST_FILE = "RunLog-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = RunLog;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C6486E3D1237F67100C6E29F /* Build configuration list for PBXProject "RunLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6486E5F1237F67100C6E29F /* Debug */,
+				C6486E601237F67100C6E29F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C6486E611237F67100C6E29F /* Build configuration list for PBXNativeTarget "RunLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6486E621237F67100C6E29F /* Debug */,
+				C6486E631237F67100C6E29F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C6486E3A1237F67100C6E29F /* Project object */;
+}
