@@ -9,14 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import <CorePlot/CorePlot.h>
 
-@interface CDMRunData : NSObject <CPPlotDataSource> {
+@interface CDMRunData : NSObject {
 @private
-    
+  NSArray *data;
 }
 
 - (id)initWithExtendedData:(NSArray *)extendedData;
 
-
+- (NSArray *)data;
 
 
 @end

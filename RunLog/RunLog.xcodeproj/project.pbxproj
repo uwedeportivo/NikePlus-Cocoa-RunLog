@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C61834761249BCB500D98D12 /* CDMURLFetcher.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C61834741249BCB500D98D12 /* CDMURLFetcher.h */; };
 		C61834771249BCB500D98D12 /* CDMURLFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C61834751249BCB500D98D12 /* CDMURLFetcher.m */; };
 		C6486E4C1237F67100C6E29F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6486E4B1237F67100C6E29F /* Cocoa.framework */; };
 		C6486E511237F67100C6E29F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6486E4F1237F67100C6E29F /* InfoPlist.strings */; };
@@ -18,11 +17,12 @@
 		C6486E5E1237F67100C6E29F /* RunLogDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = C6486E5D1237F67100C6E29F /* RunLogDataModel.xcdatamodel */; };
 		C6486E681237F83700C6E29F /* NikePlus.icns in Resources */ = {isa = PBXBuildFile; fileRef = C6486E671237F83700C6E29F /* NikePlus.icns */; };
 		C6486E761238031500C6E29F /* CDMXML.m in Sources */ = {isa = PBXBuildFile; fileRef = C6486E751238031500C6E29F /* CDMXML.m */; };
-		C6486E7D123821CA00C6E29F /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6486E7C123821CA00C6E29F /* CorePlot.framework */; };
-		C6486E7F123822DB00C6E29F /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6486E7C123821CA00C6E29F /* CorePlot.framework */; };
 		C6486E821238583900C6E29F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6486E811238583900C6E29F /* QuartzCore.framework */; };
-		C6486E851238598000C6E29F /* CDMRunData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6486E831238598000C6E29F /* CDMRunData.h */; };
 		C6486E861238598000C6E29F /* CDMRunData.m in Sources */ = {isa = PBXBuildFile; fileRef = C6486E841238598000C6E29F /* CDMRunData.m */; };
+		C6DA047012736AE5006D5918 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DA046F12736AE5006D5918 /* CorePlot.framework */; };
+		C6DA047112736C42006D5918 /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6DA046F12736AE5006D5918 /* CorePlot.framework */; };
+		C6DA04741275F3E8006D5918 /* CDMArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DA04731275F3E8006D5918 /* CDMArray.m */; };
+		C6DA04771275FF2E006D5918 /* CDMNumericLists.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DA04761275FF2E006D5918 /* CDMNumericLists.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,9 +32,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C6486E7F123822DB00C6E29F /* CorePlot.framework in CopyFiles */,
-				C6486E851238598000C6E29F /* CDMRunData.h in CopyFiles */,
-				C61834761249BCB500D98D12 /* CDMURLFetcher.h in CopyFiles */,
+				C6DA047112736C42006D5918 /* CorePlot.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,10 +55,14 @@
 		C6486E671237F83700C6E29F /* NikePlus.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = NikePlus.icns; sourceTree = "<group>"; };
 		C6486E741238031500C6E29F /* CDMXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMXML.h; sourceTree = "<group>"; };
 		C6486E751238031500C6E29F /* CDMXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMXML.m; sourceTree = "<group>"; };
-		C6486E7C123821CA00C6E29F /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = /Users/uwe/Library/Frameworks/CorePlot.framework; sourceTree = "<absolute>"; };
 		C6486E811238583900C6E29F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C6486E831238598000C6E29F /* CDMRunData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMRunData.h; sourceTree = "<group>"; };
 		C6486E841238598000C6E29F /* CDMRunData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMRunData.m; sourceTree = "<group>"; };
+		C6DA046F12736AE5006D5918 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = Library/Frameworks/CorePlot.framework; sourceTree = SDKROOT; };
+		C6DA04721275F3E8006D5918 /* CDMArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMArray.h; sourceTree = "<group>"; };
+		C6DA04731275F3E8006D5918 /* CDMArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMArray.m; sourceTree = "<group>"; };
+		C6DA04751275FF2E006D5918 /* CDMNumericLists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDMNumericLists.h; path = ../CDMNumericLists.h; sourceTree = "<group>"; };
+		C6DA04761275FF2E006D5918 /* CDMNumericLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDMNumericLists.m; path = ../CDMNumericLists.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DA047012736AE5006D5918 /* CorePlot.framework in Frameworks */,
 				C6486E4C1237F67100C6E29F /* Cocoa.framework in Frameworks */,
-				C6486E7D123821CA00C6E29F /* CorePlot.framework in Frameworks */,
 				C6486E821238583900C6E29F /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +103,10 @@
 		C6486E401237F67100C6E29F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C6DA04751275FF2E006D5918 /* CDMNumericLists.h */,
+				C6DA04761275FF2E006D5918 /* CDMNumericLists.m */,
+				C6DA04721275F3E8006D5918 /* CDMArray.h */,
+				C6DA04731275F3E8006D5918 /* CDMArray.m */,
 				C61834741249BCB500D98D12 /* CDMURLFetcher.h */,
 				C61834751249BCB500D98D12 /* CDMURLFetcher.m */,
 				C6486E831238598000C6E29F /* CDMRunData.h */,
@@ -136,8 +142,8 @@
 		C6486E431237F67100C6E29F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6DA046F12736AE5006D5918 /* CorePlot.framework */,
 				C6486E811238583900C6E29F /* QuartzCore.framework */,
-				C6486E7C123821CA00C6E29F /* CorePlot.framework */,
 				C6486E4B1237F67100C6E29F /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -182,7 +188,11 @@
 			};
 			buildConfigurationList = C6486E3D1237F67100C6E29F /* Build configuration list for PBXProject "RunLog" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = C6486E381237F67100C6E29F;
 			productRefGroup = C6486E491237F67100C6E29F /* Products */;
 			projectDirPath = "";
@@ -218,6 +228,8 @@
 				C6486E761238031500C6E29F /* CDMXML.m in Sources */,
 				C6486E861238598000C6E29F /* CDMRunData.m in Sources */,
 				C61834771249BCB500D98D12 /* CDMURLFetcher.m in Sources */,
+				C6DA04741275F3E8006D5918 /* CDMArray.m in Sources */,
+				C6DA04771275FF2E006D5918 /* CDMNumericLists.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,10 +299,6 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Frameworks\"",
-				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -309,10 +317,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../../Library/Frameworks\"",
-				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

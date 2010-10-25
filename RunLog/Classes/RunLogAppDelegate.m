@@ -10,6 +10,9 @@
 #import "RunLogAppDelegate.h"
 #import "CDMURLFetcher.h"
 #import "CDMXML.h"
+#import "CDMArray.h"
+#import "CDMRunData.h"
+
 #import <CorePlot/CorePlot.h>
 
 @implementation RunLogAppDelegate
@@ -33,7 +36,18 @@
       NSLog(@"xmlDoc = %@", xmlDoc);
       
       error = nil;
-      NSLog(@"extendedData = %@", [xmlDoc commaSeparatedTextAtTag:@"extendedData" error:&error]);
+        
+      NSArray *extendedDataStr = [xmlDoc commaSeparatedTextAtTag:@"extendedData" error:&error];
+      
+      NSArray *extendedData = [extendedDataStr map:^(id elem) {
+        NSString *elemStr = (NSString *) elem;
+        
+        return [NSNumber numberWithDouble:[elemStr doubleValue]]; 
+      }];
+      
+      CDMRunData *runData = [[[CDMRunData alloc] initWithExtendedData:extendedData] autorelease];
+      
+      NSLog(@"extendedData = %@", [runData data]);
       
       error = nil;
       NSLog(@"calories = %@", [xmlDoc textAtTag:@"calories" error:&error]);
