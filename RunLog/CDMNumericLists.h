@@ -25,3 +25,5 @@ extern double CDMNumericMin(double *values, NSUInteger valuesSize);
 
 extern void CDMNumericMap(double *values, NSUInteger valuesSize,
                           double (^block)(double));
+
+extern NSArray *CDMNumericArrayFromRange(NSRange range);

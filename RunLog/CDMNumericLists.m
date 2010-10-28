@@ -104,3 +104,12 @@ void CDMNumericMap(double *values, NSUInteger valuesSize, double (^block)(double
   }
 }
 
+NSArray *CDMNumericArrayFromRange(NSRange range) {
+  NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:range.length];
+  
+  for (NSUInteger i = 0; i < range.length; i++) {
+    [result addObject:[NSNumber numberWithDouble:(double) (range.location + i)]];
+  }
+  return result;
+}
+

@@ -6,9 +6,10 @@
 //  Copyright 2010 codemanic. All rights reserved.
 //
 
+#import <CorePlot/CorePlot.h>
 
 @interface RunLogAppDelegate : NSObject <NSApplicationDelegate> {
-
+  CPLayerHostingView *graphView;
   NSWindow *window;
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
   NSManagedObjectModel *managedObjectModel;
@@ -16,6 +17,7 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet CPLayerHostingView *graphView;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

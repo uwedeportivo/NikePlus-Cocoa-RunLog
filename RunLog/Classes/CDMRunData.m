@@ -67,21 +67,51 @@ NSArray *CDMTransformAndSmoothRunData(NSArray *extendedData) {
 
 @implementation CDMRunData
 
+@synthesize minimumValueForXAxis, maximumValueForXAxis,
+            minimumValueForYAxis, maximumValueForYAxis;
+
 - (id)initWithExtendedData:(NSArray *)extendedData {
   if ((self = [super init])) {
-    data = [CDMTransformAndSmoothRunData(extendedData) retain];
+    yData = [CDMTransformAndSmoothRunData(extendedData) retain];
+    xData = CDMNumericArrayFromRange(NSMakeRange(0, [yData count]));
+    minimumValueForXAxis = 0.0;
+    maximumValueForXAxis = (double) [yData count];
+    minimumValueForYAxis = [[yData objectAtIndex:0] doubleValue];
+    maximumValueForYAxis = minimumValueForYAxis;
+    for (NSNumber *value in yData) {
+      double v = [value doubleValue];
+      
+      if (minimumValueForYAxis > v) {
+        minimumValueForYAxis = v;
+      }
+      
+      if (maximumValueForYAxis < v) {
+        maximumValueForYAxis = v;
+      }
+    }
   }
   
   return self;
 }
 
-- (NSArray *)data {
-  return data;
+- (void)dealloc {
+  [yData release];
+  [xData release];
+  [super dealloc];
 }
 
-- (void)dealloc {
-  [data release];
-  [super dealloc];
+-(NSUInteger)numberOfRecordsForPlot:(CPPlot *)plot {
+  return [yData count];
+}
+
+- (NSArray *)numbersForPlot:(CPPlot *)plot
+                      field:(NSUInteger)fieldEnum
+          recordIndexRange:(NSRange)indexRange {
+  if (fieldEnum == CPScatterPlotFieldX) {
+    return [xData subarrayWithRange:indexRange];
+  } else {
+    return [yData subarrayWithRange:indexRange];
+  }
 }
 
 @end

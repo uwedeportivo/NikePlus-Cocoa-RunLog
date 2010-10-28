@@ -15,6 +15,7 @@
   NSMutableData *dataBuffer;
 }
 
-+ (void)fetch:(NSURLRequest *)request completionHandler:(void (^)(NSData *data, NSError *error))handler;
++ (void)fetch:(NSURLRequest *)request 
+      completionHandler:(void (^)(NSData *data, NSError *error))handler;
 
 @end

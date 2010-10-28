@@ -37,24 +37,83 @@
       
       error = nil;
         
-      NSArray *extendedDataStr = [xmlDoc commaSeparatedTextAtTag:@"extendedData" error:&error];
+      NSArray *extendedDataStr = 
+        [xmlDoc commaSeparatedTextAtTag:@"extendedData" error:&error];
       
       NSArray *extendedData = [extendedDataStr map:^(id elem) {
         NSString *elemStr = (NSString *) elem;
         
         return [NSNumber numberWithDouble:[elemStr doubleValue]]; 
       }];
+      NSLog(@"extendedData = %@", extendedData);
       
-      CDMRunData *runData = [[[CDMRunData alloc] initWithExtendedData:extendedData] autorelease];
-      
-      NSLog(@"extendedData = %@", [runData data]);
-      
+      CDMRunData *runData = [[CDMRunData alloc] initWithExtendedData:extendedData];
+            
       error = nil;
       NSLog(@"calories = %@", [xmlDoc textAtTag:@"calories" error:&error]);
 
       error = nil;
       NSLog(@"startTime = %@", [xmlDoc textAtTag:@"startTime" error:&error]);
 
+      double minimumValueForXAxis = runData.minimumValueForXAxis;
+      double maximumValueForXAxis = runData.maximumValueForXAxis;
+      double minimumValueForYAxis = runData.minimumValueForYAxis;
+      double maximumValueForYAxis = runData.maximumValueForYAxis;
+      double majorIntervalLengthForX = (maximumValueForXAxis - minimumValueForXAxis) / 10.0;
+      double majorIntervalLengthForY = (maximumValueForYAxis - minimumValueForYAxis) / 10.0;
+      
+      CPXYGraph *graph = [(CPXYGraph *)[CPXYGraph alloc] initWithFrame:CGRectZero];
+      CPTheme *theme = [CPTheme themeNamed:kCPPlainWhiteTheme];
+      [graph applyTheme:theme]; 
+      graphView.hostedLayer = graph;
+      
+      graph.paddingTop = 40.0;
+      graph.paddingRight = 40.0;
+      graph.paddingBottom = 40.0;
+      
+      // Setup plot space
+      CPXYPlotSpace *plotSpace = (CPXYPlotSpace *)graph.defaultPlotSpace;
+      plotSpace.xRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(minimumValueForXAxis) length:CPDecimalFromFloat(maximumValueForXAxis - minimumValueForXAxis)];
+      plotSpace.yRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(minimumValueForYAxis) length:CPDecimalFromFloat(maximumValueForYAxis - minimumValueForYAxis)];
+      
+      CPXYAxisSet *axisSet = (CPXYAxisSet *)graph.axisSet;
+      CPXYAxis *x = axisSet.xAxis;
+      x.majorIntervalLength = CPDecimalFromDouble(majorIntervalLengthForX);
+      x.orthogonalCoordinateDecimal = CPDecimalFromDouble(minimumValueForYAxis);
+      x.minorTicksPerInterval = 5;
+      
+      CPXYAxis *y = axisSet.yAxis;
+      y.majorIntervalLength = CPDecimalFromDouble(majorIntervalLengthForY);
+      y.minorTicksPerInterval = 5;
+      y.orthogonalCoordinateDecimal = CPDecimalFromDouble(minimumValueForXAxis);
+      
+      CPLineStyle *borderLineStyle = [CPLineStyle lineStyle];
+      borderLineStyle.lineColor = [CPColor colorWithGenericGray:0.2];
+      borderLineStyle.lineWidth = 0.0f;
+      
+      //	CPBorderedLayer *borderedLayer = (CPBorderedLayer *)axisSet.overlayLayer;
+      //	borderedLayer.borderLineStyle = borderLineStyle;
+      //	borderedLayer.cornerRadius = 0.0f;
+      
+      // Create the main plot for the delimited data
+      CPScatterPlot *dataSourceLinePlot = [[(CPScatterPlot *)[CPScatterPlot alloc] initWithFrame:graph.bounds] autorelease];
+      dataSourceLinePlot.identifier = @"Data Source Plot";
+      dataSourceLinePlot.dataLineStyle.lineWidth = 1.f;
+      dataSourceLinePlot.dataLineStyle.lineColor = [CPColor blackColor];
+      dataSourceLinePlot.dataSource = runData;
+      [graph addPlot:dataSourceLinePlot];
+      
+      // Add plot symbols
+      //	CPLineStyle *symbolLineStyle = [CPLineStyle lineStyle];
+      //	symbolLineStyle.lineColor = [CPColor whiteColor];
+      //	CPPlotSymbol *plotSymbol = [CPPlotSymbol ellipsePlotSymbol];
+      //	plotSymbol.fill = [CPFill fillWithColor:[CPColor blueColor]];
+      //	plotSymbol.lineStyle = symbolLineStyle;
+      //    plotSymbol.size = CGSizeMake(10.0, 10.0);
+      //    dataSourceLinePlot.plotSymbol = plotSymbol;
+      
+      [graph reloadData];
+      [graphView needsDisplay];      
     }
   }]; 
 }

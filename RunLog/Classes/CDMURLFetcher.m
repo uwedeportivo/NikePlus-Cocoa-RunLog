@@ -24,7 +24,8 @@
   [super dealloc];
 }
 
-+ (void)fetch:(NSURLRequest *)request completionHandler:(void (^)(NSData *data, NSError *error))handler {
++ (void)fetch:(NSURLRequest *)request 
+      completionHandler:(void (^)(NSData *data, NSError *error))handler {
   id delegate = [[self alloc] initWithCompletionHandler:handler];
   
   NSURLConnection *connection = [NSURLConnection connectionWithRequest:request delegate:delegate];

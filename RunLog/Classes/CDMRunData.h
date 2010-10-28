@@ -9,14 +9,21 @@
 #import <Cocoa/Cocoa.h>
 #import <CorePlot/CorePlot.h>
 
-@interface CDMRunData : NSObject {
+@interface CDMRunData : NSObject <CPPlotDataSource> {
 @private
-  NSArray *data;
+  NSArray *yData;
+  NSArray *xData;
+  double minimumValueForXAxis;
+  double maximumValueForXAxis;
+  double minimumValueForYAxis;
+  double maximumValueForYAxis;
 }
 
 - (id)initWithExtendedData:(NSArray *)extendedData;
 
-- (NSArray *)data;
-
+@property (readonly, nonatomic) double minimumValueForXAxis;
+@property (readonly, nonatomic) double maximumValueForXAxis;
+@property (readonly, nonatomic) double minimumValueForYAxis;
+@property (readonly, nonatomic) double maximumValueForYAxis;
 
 @end
