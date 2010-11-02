@@ -34,16 +34,9 @@ NSArray *CDMTransformAndSmoothRunData(NSArray *extendedData) {
   CDMNumericMap(values, count, ^(double x) {
     return 1.0 / (6.0 * x);
   });
-  
-  double *cv = CDMNumericCorrelate(values, count, CDMMovingAverageKernel, 6);
-  free(values);
-  values = cv;
-  count = count - 6;
-  
-  cv = CDMNumericConvolve(values, count, CDMGaussianKernel, 11);
-  free(values);
-  values = cv;
-  count = count - 11;
+    
+  count = CDMNumericCorrelate(values, count, CDMMovingAverageKernel, 6);
+  count = CDMNumericConvolve(values, count, CDMGaussianKernel, 11);
   
   double min = CDMNumericMin(values, count);
   double max = CDMNumericMax(values, count);

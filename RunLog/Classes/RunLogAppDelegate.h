@@ -10,6 +10,7 @@
 
 @interface RunLogAppDelegate : NSObject <NSApplicationDelegate> {
   CPLayerHostingView *graphView;
+  CPXYGraph *graph;
   NSWindow *window;
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
   NSManagedObjectModel *managedObjectModel;
@@ -23,6 +24,6 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 - (IBAction)saveAction:sender;
-
+- (IBAction)exportToPDF:(id)sender;
 @end
 

@@ -8,14 +8,13 @@
 
 #import "CDMNumericLists.h"
 
-double *CDMNumericConvolve(double *values, NSUInteger valuesSize,
-                           const double kernel[], NSUInteger kernelSize) {
+NSUInteger CDMNumericConvolve(double *values, NSUInteger valuesSize,
+                              const double kernel[], NSUInteger kernelSize) {
   if (valuesSize < kernelSize) {
-    return NULL;
+    return valuesSize;
   }
   
   NSUInteger n = valuesSize - kernelSize;
-  double *result = (double *) malloc(n * sizeof(double));
   
   for (NSUInteger i = 0; i < n; i++) {
     double accumulator = 0.0;
@@ -23,19 +22,18 @@ double *CDMNumericConvolve(double *values, NSUInteger valuesSize,
     for (NSUInteger j = 0; j < kernelSize; j++) {
       accumulator += values[i + j] * kernel[kernelSize - j];
     }
-    result[i] = accumulator;
+    values[i] = accumulator;
   }
-  return result;
+  return n;
 }
 
-double *CDMNumericCorrelate(double *values, NSUInteger valuesSize,
-                            const double kernel[], NSUInteger kernelSize) {
+NSUInteger CDMNumericCorrelate(double *values, NSUInteger valuesSize,
+                               const double kernel[], NSUInteger kernelSize) {
   if (valuesSize < kernelSize) {
-    return NULL;
+    return valuesSize;
   }
   
   NSUInteger n = valuesSize - kernelSize;
-  double *result = (double *) malloc(n * sizeof(double));
   
   for (NSUInteger i = 0; i < n; i++) {
     double accumulator = 0.0;
@@ -43,9 +41,9 @@ double *CDMNumericCorrelate(double *values, NSUInteger valuesSize,
     for (NSUInteger j = 0; j < kernelSize; j++) {
       accumulator += values[i + j] * kernel[j];
     }
-    result[i] = accumulator;
+    values[i] = accumulator;
   }
-  return result;
+  return n;
 }
 
 NSUInteger CDMNumericDiff(double *values, NSUInteger valuesSize) {    

@@ -59,64 +59,156 @@
       double maximumValueForXAxis = runData.maximumValueForXAxis;
       double minimumValueForYAxis = runData.minimumValueForYAxis;
       double maximumValueForYAxis = runData.maximumValueForYAxis;
-      double majorIntervalLengthForX = (maximumValueForXAxis - minimumValueForXAxis) / 10.0;
-      double majorIntervalLengthForY = (maximumValueForYAxis - minimumValueForYAxis) / 10.0;
+            
+      graph = [(CPXYGraph *)[CPXYGraph alloc] initWithFrame:CGRectZero];
       
-      CPXYGraph *graph = [(CPXYGraph *)[CPXYGraph alloc] initWithFrame:CGRectZero];
       CPTheme *theme = [CPTheme themeNamed:kCPPlainWhiteTheme];
       [graph applyTheme:theme]; 
       graphView.hostedLayer = graph;
+            
+      [graph setPaddingLeft:0];
+      [graph setPaddingTop:0];
+      [graph setPaddingRight:0];
+      [graph setPaddingBottom:0];
       
-      graph.paddingTop = 40.0;
-      graph.paddingRight = 40.0;
-      graph.paddingBottom = 40.0;
-      
+      graph.plotAreaFrame.paddingTop = 20.0;
+      graph.plotAreaFrame.paddingBottom = 60.0;
+      graph.plotAreaFrame.paddingLeft = 80.0;
+      graph.plotAreaFrame.paddingRight = 20.0;
+      graph.plotAreaFrame.cornerRadius = 10.0;
+
       // Setup plot space
       CPXYPlotSpace *plotSpace = (CPXYPlotSpace *)graph.defaultPlotSpace;
       plotSpace.xRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(minimumValueForXAxis) length:CPDecimalFromFloat(maximumValueForXAxis - minimumValueForXAxis)];
       plotSpace.yRange = [CPPlotRange plotRangeWithLocation:CPDecimalFromFloat(minimumValueForYAxis) length:CPDecimalFromFloat(maximumValueForYAxis - minimumValueForYAxis)];
       
+      // Grid line styles
+      CPLineStyle *majorGridLineStyle = [CPLineStyle lineStyle];
+      majorGridLineStyle.lineWidth = 0.75;
+      majorGridLineStyle.lineColor = [[CPColor colorWithGenericGray:0.2] colorWithAlphaComponent:0.75];
+      
+      CPLineStyle *minorGridLineStyle = [CPLineStyle lineStyle];
+      minorGridLineStyle.lineWidth = 0.25;
+      minorGridLineStyle.lineColor = [[CPColor whiteColor] colorWithAlphaComponent:0.1];    
+      
+      CPLineStyle *majorGridLineStyleSim = [CPLineStyle lineStyle];
+      majorGridLineStyleSim.lineWidth = 0.75;
+      majorGridLineStyleSim.lineColor = [[CPColor colorWithGenericGray:0.2] colorWithAlphaComponent:0.75];
+      
+      CPLineStyle *minorGridLineStyleSim = [CPLineStyle lineStyle];
+      minorGridLineStyleSim.lineWidth = 0.25;
+      minorGridLineStyleSim.lineColor = [[CPColor whiteColor] colorWithAlphaComponent:0.1];    
+
       CPXYAxisSet *axisSet = (CPXYAxisSet *)graph.axisSet;
       CPXYAxis *x = axisSet.xAxis;
-      x.majorIntervalLength = CPDecimalFromDouble(majorIntervalLengthForX);
-      x.orthogonalCoordinateDecimal = CPDecimalFromDouble(minimumValueForYAxis);
-      x.minorTicksPerInterval = 5;
+      
+      CPConstraints constraints = {CPConstraintFixed,CPConstraintFixed};
+      x.isFloatingAxis = YES;
+      x.constraints = constraints;
+      
+      x.labelingPolicy = CPAxisLabelingPolicyNone;
+      x.orthogonalCoordinateDecimal = CPDecimalFromString(@"0");
+      x.minorTicksPerInterval = 4;
+      x.preferredNumberOfMajorTicks = 9;
+      x.majorGridLineStyle = majorGridLineStyle;
+      x.minorGridLineStyle = minorGridLineStyle;
+      x.labelOffset = 10.0;
+      x.title = @"Time (min)";
+      x.titleOffset = 30.0;
+      
+      NSMutableSet *labelSet = [NSMutableSet set];
+      NSMutableSet *majorTickSet = [NSMutableSet set];
+      for (NSUInteger i = 0; i < 11; i++) {
+        double locationValue = minimumValueForXAxis + 
+        i * (maximumValueForXAxis - minimumValueForXAxis) / 10;
+        double labelValue = locationValue / 6.0;
+        CPAxisLabel *newLabel = [[CPAxisLabel alloc] 
+                                 initWithText:
+                                 [x.labelFormatter stringFromNumber:[NSNumber numberWithDouble:labelValue]] 
+                                 textStyle:x.labelTextStyle];
+        newLabel.tickLocation = 
+        [[NSDecimalNumber numberWithDouble:locationValue] decimalValue];
+        newLabel.offset = 10.0;
+        [labelSet addObject:newLabel];
+        [newLabel release];
+        [majorTickSet addObject:[NSDecimalNumber numberWithDouble:locationValue]];
+      }
+      x.axisLabels = labelSet;
+      x.majorTickLocations = majorTickSet;
       
       CPXYAxis *y = axisSet.yAxis;
-      y.majorIntervalLength = CPDecimalFromDouble(majorIntervalLengthForY);
-      y.minorTicksPerInterval = 5;
-      y.orthogonalCoordinateDecimal = CPDecimalFromDouble(minimumValueForXAxis);
       
-      CPLineStyle *borderLineStyle = [CPLineStyle lineStyle];
-      borderLineStyle.lineColor = [CPColor colorWithGenericGray:0.2];
-      borderLineStyle.lineWidth = 0.0f;
+      y.isFloatingAxis = YES;
+      y.constraints = constraints;
       
-      //	CPBorderedLayer *borderedLayer = (CPBorderedLayer *)axisSet.overlayLayer;
-      //	borderedLayer.borderLineStyle = borderLineStyle;
-      //	borderedLayer.cornerRadius = 0.0f;
+      y.labelingPolicy = CPAxisLabelingPolicyNone;
+      [y.labelFormatter setFormat:@"#,##0.00"];
+      y.orthogonalCoordinateDecimal = CPDecimalFromString(@"0");
+      y.majorGridLineStyle = majorGridLineStyle;
+      y.minorGridLineStyle = minorGridLineStyle;
+      y.minorTicksPerInterval = 4;
+      y.preferredNumberOfMajorTicks = 9;
+      y.labelOffset = 10.0;
+      y.title = @"Pace (mins / km)";
+      y.titleOffset = 55.0;
       
-      // Create the main plot for the delimited data
-      CPScatterPlot *dataSourceLinePlot = [[(CPScatterPlot *)[CPScatterPlot alloc] initWithFrame:graph.bounds] autorelease];
-      dataSourceLinePlot.identifier = @"Data Source Plot";
-      dataSourceLinePlot.dataLineStyle.lineWidth = 1.f;
-      dataSourceLinePlot.dataLineStyle.lineColor = [CPColor blackColor];
-      dataSourceLinePlot.dataSource = runData;
-      [graph addPlot:dataSourceLinePlot];
+      labelSet = [NSMutableSet set];
+      majorTickSet = [NSMutableSet set];
+      for (NSUInteger i = 0; i < 11; i++) {
+        double locationValue = minimumValueForYAxis + 
+           i * (maximumValueForYAxis - minimumValueForYAxis) / 10;
+        double labelValue = maximumValueForYAxis + minimumValueForYAxis - locationValue;
+        CPAxisLabel *newLabel = [[CPAxisLabel alloc] 
+                                   initWithText:
+                                      [y.labelFormatter stringFromNumber:[NSNumber numberWithDouble:labelValue]] 
+                                      textStyle:y.labelTextStyle];
+        newLabel.tickLocation = 
+           [[NSDecimalNumber numberWithDouble:locationValue] decimalValue];
+        newLabel.offset = 10.0;
+        [labelSet addObject:newLabel];
+        [newLabel release];
+        [majorTickSet addObject:[NSDecimalNumber numberWithDouble:locationValue]];
+      }
+      y.axisLabels = labelSet;
+      y.majorTickLocations = majorTickSet;
+            
+      CPScatterPlot *linePlot = [[[CPScatterPlot alloc] init] autorelease];
+      linePlot.identifier = @"Run";
+      linePlot.dataLineStyle.miterLimit = 1.0;
+      linePlot.dataLineStyle.lineWidth = 3.0;
+      linePlot.dataLineStyle.lineColor = [CPColor blueColor];
+      linePlot.dataSource = runData;
+      [graph addPlot:linePlot];
+
+      [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:linePlot, nil]];
+      CPPlotRange *xRange = plotSpace.xRange;
+      NSDecimal oldLocation = xRange.location;
+      [xRange expandRangeByFactor:CPDecimalFromDouble(1.05)];
+      xRange.location = oldLocation;
       
-      // Add plot symbols
-      //	CPLineStyle *symbolLineStyle = [CPLineStyle lineStyle];
-      //	symbolLineStyle.lineColor = [CPColor whiteColor];
-      //	CPPlotSymbol *plotSymbol = [CPPlotSymbol ellipsePlotSymbol];
-      //	plotSymbol.fill = [CPFill fillWithColor:[CPColor blueColor]];
-      //	plotSymbol.lineStyle = symbolLineStyle;
-      //    plotSymbol.size = CGSizeMake(10.0, 10.0);
-      //    dataSourceLinePlot.plotSymbol = plotSymbol;
+      CPPlotRange *yRange = plotSpace.yRange;
+      oldLocation = yRange.location;
+      [yRange expandRangeByFactor:CPDecimalFromDouble(1.05)];
+      yRange.location = oldLocation;
+
+      graph.plotAreaFrame.borderLineStyle = nil;
       
       [graph reloadData];
-      [graphView needsDisplay];      
+      [graphView needsDisplay]; 
     }
   }]; 
 }
+
+- (IBAction)exportToPDF:(id)sender {
+	NSSavePanel *pdfSavingDialog = [NSSavePanel savePanel];
+	[pdfSavingDialog setRequiredFileType:@"pdf"];
+	
+	if ([pdfSavingDialog runModalForDirectory:nil file:nil] == NSOKButton) {
+		NSData *dataForPDF = [graph dataForPDFRepresentationOfLayer];
+		[dataForPDF writeToFile:[pdfSavingDialog filename] atomically:NO];
+	}		
+}
+
 
 /**
     Returns the support directory for the application, used to store the Core Data
@@ -269,7 +361,7 @@
         // This error handling simply presents error information in a panel with an 
         // "Ok" button, which does not include any attempt at error recovery (meaning, 
         // attempting to fix the error.)  As a result, this implementation will 
-        // present the information to the user and then follow up with a panel asking 
+        // present the information to the user and then follow up with a panel asg 
         // if the user wishes to "Quit Anyway", without saving the changes.
 
         // Typically, this process should be altered to include application-specific 
@@ -300,7 +392,7 @@
 }
 
 - (void)dealloc {
-
+  [graph release];
   [managedObjectContext release];
   [persistentStoreCoordinator release];
   [managedObjectModel release];

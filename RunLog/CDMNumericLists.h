@@ -8,12 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-extern double *CDMNumericConvolve(double *values, NSUInteger valuesSize,
-                                  const double kernel[], NSUInteger kernelSize);
+extern NSUInteger CDMNumericConvolve(double *values, NSUInteger valuesSize,
+                                     const double kernel[], NSUInteger kernelSize);
 
-extern double *CDMNumericCorrelate(double *values, NSUInteger valuesSize,
-                                   const double kernel[], NSUInteger kernelSize);
-
+extern NSUInteger CDMNumericCorrelate(double *values, NSUInteger valuesSize,
+                                      const double kernel[], NSUInteger kernelSize);
 
 extern NSUInteger CDMNumericDiff(double *values, NSUInteger valuesSize);
 
