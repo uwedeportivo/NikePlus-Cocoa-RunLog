@@ -8,11 +8,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "310345503.287898"
+         timestampString = "310629317.412855"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
+         startingLineNumber = "69"
+         endingLineNumber = "69"
          landmarkName = "-applicationDidFinishLaunching:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -22,12 +22,26 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "310345503.287898"
+         timestampString = "310629317.412855"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
+         startingLineNumber = "69"
+         endingLineNumber = "69"
          landmarkName = "-applicationDidFinishLaunching:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RunLog/Classes/CDMNikeSyncer.m"
+         timestampString = "310630202.350639"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "107"
+         endingLineNumber = "107"
+         landmarkName = "-fetchRunList"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
