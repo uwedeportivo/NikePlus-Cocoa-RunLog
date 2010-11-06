@@ -32,7 +32,10 @@ static NSString * const kNikeRunListURLFormat =
 
 @interface CDMNikeSyncer() 
 
+- (void)syncStep;
+- (void)finishSync;
 - (void)fetchRunList;
+- (void)findMissingRuns:(NSArray *)runIds;
 - (void)fetchRun:(NSUInteger)runId;
 - (void)saveRun:(NSXMLDocument *)xmlDoc runId:(NSUInteger)runId;
 
@@ -50,7 +53,27 @@ static NSString * const kNikeRunListURLFormat =
 }
 
 - (void)dealloc {
+  [runsToSync release];
   [super dealloc];
+}
+
+- (void)finishSync {
+  [runsToSync release];
+  runsToSync = nil;
+  isSyncing = NO;
+  syncCursor = 0;
+  [appDelegate saveAction:self];
+  NSLog(@"finishSync");
+}
+
+- (void)syncStep {
+  NSLog(@"syncStep");
+  if (syncCursor < [runsToSync count]) {
+    NSUInteger runId = [[runsToSync objectAtIndex:syncCursor] intValue];
+    [self fetchRun:runId];
+  } else {
+    [self finishSync];
+  }
 }
 
 - (void)saveRun:(NSXMLDocument *)xmlDoc runId:(NSUInteger)runId {
@@ -86,6 +109,57 @@ static NSString * const kNikeRunListURLFormat =
 
   error = nil;
   nikeRun.startTime = CDMParseDateString([xmlDoc textAtTag:@"startTime" error:&error]);
+  
+  NSLog(@"saveRun saved %@", nikeRun);
+  syncCursor++;
+  [self syncStep];
+}
+
+- (void)findMissingRuns:(NSArray *)runIds {
+  NSManagedObjectContext *moc = appDelegate.managedObjectContext;
+  NSEntityDescription *entityDescription = [NSEntityDescription
+                                            entityForName:@"NikeRun" inManagedObjectContext:moc];
+  NSFetchRequest *request = [[[NSFetchRequest alloc] init] autorelease];
+  [request setEntity:entityDescription];
+    
+  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                      initWithKey:@"runId" ascending:YES];
+  [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+  [sortDescriptor release];
+  
+  NSError *error = nil;
+  NSArray *nikeRuns = [moc executeFetchRequest:request error:&error];
+  
+  NSUInteger nikeRunsCount = [nikeRuns count];
+  NSUInteger runIdsCount = [runIds count];
+  
+  NSUInteger i = 0;
+  NSUInteger j = 0;
+  
+  runsToSync = [[NSMutableArray alloc] initWithCapacity:32];
+  while (i < nikeRunsCount && j < runIdsCount) {
+    NSUInteger nikeRunId = [[[nikeRuns objectAtIndex:i] runId] intValue];
+    NSUInteger fetchedId = [[runIds objectAtIndex:j] intValue];
+    
+    if (fetchedId == nikeRunId) {
+      i++;
+      j++;
+    } else if (fetchedId < nikeRunId) {
+      [runsToSync addObject:[NSNumber numberWithInt:fetchedId]];
+      j++;
+    } else {
+      i++;
+    }
+  }
+  
+  while (j < runIdsCount) {
+    NSUInteger fetchedId = [[runIds objectAtIndex:j] intValue];
+    [runsToSync addObject:[NSNumber numberWithInt:fetchedId]];
+    j++;
+  }
+  
+  NSLog(@"findMissingRuns found %@", runsToSync);
+  [self syncStep];
 }
 
 - (void)fetchRunList {
@@ -107,10 +181,11 @@ static NSString * const kNikeRunListURLFormat =
         return [NSNumber numberWithInt:[[elem stringValue] intValue]]; 
       }];
 
-      NSLog(@"runs = %@", runIds);
+      runIds = [runIds sortedArrayUsingSelector:@selector(compare:)];
+      NSLog(@"fetchRunList found %@", runIds);
+      [self findMissingRuns:runIds];
     }
   }]; 
-
 }
 
 - (void)fetchRun:(NSUInteger)runId {
@@ -125,12 +200,18 @@ static NSString * const kNikeRunListURLFormat =
       NSXMLDocument *xmlDoc = 
         [[[NSXMLDocument alloc] initWithData:data options:0 error:&error] autorelease];
       
+      NSLog(@"fetchRun for %lu found %@", runId, xmlDoc);
       [self saveRun:xmlDoc runId:runId]; 
     }
   }]; 
 }
 
 - (void)sync {
+  if (isSyncing) {
+    return;
+  }
+  NSLog(@"started sync");
+  isSyncing = YES;
   [self fetchRunList];
 }
 

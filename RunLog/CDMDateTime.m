@@ -11,7 +11,11 @@
 static NSDateFormatter *dateFormatter;
 
 NSDate *CDMParseDateString(NSString *dateString) {
-  NSString *hack = [dateString stringByReplacingOccurrencesOfString:@":00" withString:@"00"];
+  NSString *hack = 
+    [dateString stringByReplacingOccurrencesOfString:@":00" 
+                                          withString:@"00" 
+                                             options:0
+                                               range:NSMakeRange([dateString length] - 5, 5)];
   
   if (dateFormatter == nil) {
     NSLocale *enUSPOSIXLocale;

@@ -14,6 +14,7 @@
   CPLayerHostingView *graphView;
   CPXYGraph *graph;
   NSWindow *window;
+  NSArrayController *runsController;
   CDMNikeSyncer *syncer;
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
   NSManagedObjectModel *managedObjectModel;
@@ -22,6 +23,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet CPLayerHostingView *graphView;
+@property (assign) IBOutlet NSArrayController *runsController;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

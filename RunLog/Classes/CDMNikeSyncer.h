@@ -14,6 +14,9 @@
 @private
   NSUInteger nikeId;
   RunLogAppDelegate *appDelegate;
+  BOOL isSyncing;
+  NSMutableArray *runsToSync;
+  NSUInteger syncCursor;
 }
 
 - (id)initWithNikeId:(NSUInteger)nid;
