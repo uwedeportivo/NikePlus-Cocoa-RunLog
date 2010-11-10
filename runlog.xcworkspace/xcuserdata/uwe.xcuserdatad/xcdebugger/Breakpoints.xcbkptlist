@@ -8,11 +8,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "310716194.535219"
+         timestampString = "311041109.616961"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
          landmarkName = "-applicationDidFinishLaunching:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -22,11 +22,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "310716194.535219"
+         timestampString = "311041109.616961"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
          landmarkName = "-applicationDidFinishLaunching:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -36,11 +36,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/CDMNikeSyncer.m"
-         timestampString = "310716194.535219"
+         timestampString = "311041109.616961"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "184"
-         endingLineNumber = "184"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
          landmarkName = "-fetchRunList"
          landmarkType = "5">
       </FileBreakpoint>
@@ -50,11 +50,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "310717407.956898"
+         timestampString = "311042630.789456"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "215"
-         endingLineNumber = "215"
+         startingLineNumber = "217"
+         endingLineNumber = "217"
          landmarkName = "-saveAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -64,11 +64,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/CDMNikeSyncer.m"
-         timestampString = "310718539.490017"
+         timestampString = "311041109.616961"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "133"
-         endingLineNumber = "133"
+         startingLineNumber = "141"
+         endingLineNumber = "141"
          landmarkName = "-findMissingRuns:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -78,26 +78,40 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/CDMNikeSyncer.m"
-         timestampString = "310719297.135916"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "148"
-         endingLineNumber = "148"
-         landmarkName = "-findMissingRuns:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "RunLog/Classes/CDMNikeSyncer.m"
-         timestampString = "310719299.798093"
+         timestampString = "311041109.616961"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "156"
          endingLineNumber = "156"
          landmarkName = "-findMissingRuns:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RunLog/Classes/CDMNikeSyncer.m"
+         timestampString = "311041109.616961"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-findMissingRuns:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RunLog/Classes/CDMNikeSyncer.m"
+         timestampString = "311041109.616961"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
+         landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

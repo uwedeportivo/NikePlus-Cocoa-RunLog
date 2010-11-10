@@ -8,11 +8,30 @@
 
 #import "CDMCorePlot.h"
 
-CPXYGraph *CDMCreateGraph(CDMRunData *runData) {
-  double minimumValueForXAxis = runData.minimumValueForXAxis;
-  double maximumValueForXAxis = runData.maximumValueForXAxis;
-  double minimumValueForYAxis = runData.minimumValueForYAxis;
-  double maximumValueForYAxis = runData.maximumValueForYAxis;
+static NSArray *distinctColors;
+
+CPXYGraph *CDMCreateGraph(NSArray *rds) {
+  CDMRunData *oneRunData = [rds objectAtIndex:0];
+  
+  double minimumValueForXAxis = oneRunData.minimumValueForXAxis;
+  double maximumValueForXAxis = oneRunData.maximumValueForXAxis;
+  double minimumValueForYAxis = oneRunData.minimumValueForYAxis;
+  double maximumValueForYAxis = oneRunData.maximumValueForYAxis;
+  
+  for (CDMRunData *runData in rds) {
+    if (minimumValueForXAxis > runData.minimumValueForXAxis) {
+      minimumValueForXAxis = runData.minimumValueForXAxis;
+    }
+    if (maximumValueForXAxis < runData.maximumValueForXAxis) {
+      maximumValueForXAxis = runData.maximumValueForXAxis;
+    }
+    if (minimumValueForYAxis > runData.minimumValueForYAxis) {
+      minimumValueForYAxis = runData.minimumValueForYAxis;
+    }
+    if (maximumValueForYAxis < runData.maximumValueForYAxis) {
+      maximumValueForYAxis = runData.maximumValueForYAxis;
+    }
+  }
 
   CPXYGraph *graph = [(CPXYGraph *)[CPXYGraph alloc] initWithFrame:CGRectZero];
   
@@ -125,15 +144,36 @@ CPXYGraph *CDMCreateGraph(CDMRunData *runData) {
   y.axisLabels = labelSet;
   y.majorTickLocations = majorTickSet;
   
-  CPScatterPlot *linePlot = [[[CPScatterPlot alloc] init] autorelease];
-  linePlot.identifier = @"Run";
-  linePlot.dataLineStyle.miterLimit = 1.0;
-  linePlot.dataLineStyle.lineWidth = 3.0;
-  linePlot.dataLineStyle.lineColor = [CPColor blueColor];
-  linePlot.dataSource = runData;
-  [graph addPlot:linePlot];
+  if (distinctColors == nil) {
+    distinctColors = [[NSArray arrayWithObjects:
+                      [CPColor blueColor],
+                      [CPColor greenColor],
+                      [CPColor redColor],
+                      [CPColor brownColor],
+                      [CPColor orangeColor],
+                      [CPColor cyanColor],
+                      [CPColor yellowColor],
+                      [CPColor magentaColor],
+                      [CPColor purpleColor],
+                      [CPColor grayColor],
+                      nil] retain];
+  }
+  NSMutableArray *plots = [NSMutableArray array];
+  NSUInteger cursor = 0;
+  for (CDMRunData *runData in rds) {
+    CPScatterPlot *linePlot = [[[CPScatterPlot alloc] init] autorelease];
+    linePlot.identifier = @"Run";
+    linePlot.dataLineStyle.miterLimit = 1.0;
+    linePlot.dataLineStyle.lineWidth = 3.0;
+    NSUInteger colorIndex = cursor % [distinctColors count];
+    linePlot.dataLineStyle.lineColor = [distinctColors objectAtIndex:colorIndex];
+    linePlot.dataSource = runData;
+    [graph addPlot:linePlot];
+    [plots addObject:linePlot];
+    cursor++;
+  }
   
-  [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:linePlot, nil]];
+  [plotSpace scaleToFitPlots:plots];
   CPPlotRange *xRange = plotSpace.xRange;
   NSDecimal oldLocation = xRange.location;
   [xRange expandRangeByFactor:CPDecimalFromDouble(1.05)];

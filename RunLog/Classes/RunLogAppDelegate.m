@@ -14,54 +14,32 @@
 #import "CDMRunData.h"
 #import "CDMCorePlot.h"
 #import "CDMDateTime.h"
+#import "CDMSecs2MinTransformer.h"
+#import "CDMNikeRunAccessors.h"
 
 #import <CorePlot/CorePlot.h>
 
 @implementation RunLogAppDelegate
 
-@synthesize window, graphView, runsController;
+@synthesize window, graphView, runsController, syncer;
+
++ (void) initialize {
+  [NSValueTransformer setValueTransformer: [[CDMSecs2MinTransformer new] autorelease]
+                                  forName: @"secs2MinTransformer"];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   
-  syncer = [[CDMNikeSyncer alloc] initWithNikeId:617307368];
+  runDataByRunId = [[NSMutableDictionary alloc] init];
+  
+  [syncer setNikeId:617307368];
   
   [syncer sync];
   
-  //nikeid = 617307368  
-  //runid = 608402641
-  
-  NSURL *url = [NSURL URLWithString:@"http://nikerunning.nike.com/nikeplus/v1/services/widget/get_public_run.jsp?userID=617307368&id=608402641"];
-  NSURLRequest *pageRequest = [NSURLRequest requestWithURL:url];
-
-  [CDMURLFetcher fetch:pageRequest completionHandler:^(NSData *data, NSError *error) {
-    if (error == nil) {
-      NSError *error = nil;
-      NSXMLDocument *xmlDoc = 
-        [[[NSXMLDocument alloc] initWithData:data options:0 error:&error] autorelease];
-            
-      error = nil;
-        
-      NSArray *extendedDataStr = 
-        [xmlDoc commaSeparatedTextAtTag:@"extendedData" error:&error];
-      
-      NSArray *extendedData = [extendedDataStr map:^(id elem) {
-        NSString *elemStr = (NSString *) elem;
-        
-        return [NSNumber numberWithDouble:[elemStr doubleValue]]; 
-      }];
-      
-      CDMRunData *runData = [[CDMRunData alloc] initWithExtendedData:extendedData];
-            
-      error = nil;
-      
-      graph = CDMCreateGraph(runData);
-      
-      graphView.hostedLayer = graph;
-      
-      [graph reloadData];
-      [graphView needsDisplay]; 
-    }
-  }]; 
+  [runsController addObserver: self
+                   forKeyPath: @"selectionIndexes"
+                      options: NSKeyValueObservingOptionNew
+                      context: NULL];  
 }
 
 - (IBAction)exportToPDF:(id)sender {
@@ -69,12 +47,36 @@
 	[pdfSavingDialog setRequiredFileType:@"pdf"];
 	
 	if ([pdfSavingDialog runModalForDirectory:nil file:nil] == NSOKButton) {
-		NSData *dataForPDF = [graph dataForPDFRepresentationOfLayer];
+		NSData *dataForPDF = [graphView.hostedLayer dataForPDFRepresentationOfLayer];
 		[dataForPDF writeToFile:[pdfSavingDialog filename] atomically:NO];
 	}		
 }
 
-
+- (void)observeValueForKeyPath:(NSString *)keyPath 
+                      ofObject:(id)object 
+                        change:(NSDictionary *)change 
+                       context:(void *)context {
+  if ([keyPath isEqualTo:@"selectionIndexes"] && object == runsController) {
+    if([[runsController selectedObjects] count] > 0) {
+      NSArray *selectedRunData = [[runsController selectedObjects] map:^(id elem) {
+        CDMRunData *runData = (CDMRunData *)[runDataByRunId objectForKey:[elem runId]];
+        if (runData == nil) {
+          NSArray *extendedData = [NSUnarchiver unarchiveObjectWithData:[elem extendedData]];
+          runData = [[[CDMRunData alloc] initWithExtendedData:extendedData] autorelease];
+          
+          [runDataByRunId setObject:runData forKey:[elem runId]];
+        } 
+        return runData;
+      }];
+      
+      [graphView.hostedLayer release];
+      CPXYGraph *graph = CDMCreateGraph(selectedRunData);
+      graphView.hostedLayer = graph;
+      [graph reloadData];
+      [graphView needsDisplay]; 
+    } 
+  }
+}
 
 
 // ---------------------------------------------------------------------------------------------
@@ -272,8 +274,8 @@
 }
 
 - (void)dealloc {
-  [graph release];
-  [syncer release];
+  [runsController removeObserver:self forKeyPath:@"selectionIndexes"];
+  [runDataByRunId release];
   [managedObjectContext release];
   [persistentStoreCoordinator release];
   [managedObjectModel release];

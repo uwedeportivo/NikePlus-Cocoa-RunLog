@@ -10,4 +10,4 @@
 #import <CorePlot/CorePlot.h>
 #import "CDMRunData.h"
 
-extern CPXYGraph *CDMCreateGraph(CDMRunData *runData);
+extern CPXYGraph *CDMCreateGraph(NSArray *rds);

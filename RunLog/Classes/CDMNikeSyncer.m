@@ -12,6 +12,7 @@
 #import "CDMXML.h"
 #import "CDMArray.h"
 #import "CDMDateTime.h"
+#import "CDMNikeRunAccessors.h"
 
 static NSString * const kNikeRunURLFormat = 
   @"http://nikerunning.nike.com/nikeplus/v1/services/widget/get_public_run.jsp?userID=%d&id=%d";
@@ -19,16 +20,6 @@ static NSString * const kNikeRunURLFormat =
 static NSString * const kNikeRunListURLFormat =
   @"http://nikerunning.nike.com/nikeplus/v1/services/widget/get_public_run_list.jsp?userID=%d";
 
-@interface NSManagedObject(NikeRunAccessors)
-
-@property (nonatomic, retain) NSNumber *calories;
-@property (nonatomic, retain) NSNumber *distance;
-@property (nonatomic, retain) NSNumber *duration;
-@property (nonatomic, retain) NSData *extendedData;
-@property (nonatomic, retain) NSNumber *runId;
-@property (nonatomic, retain) NSDate *startTime;
-
-@end
 
 @interface CDMNikeSyncer() 
 
@@ -43,10 +34,12 @@ static NSString * const kNikeRunListURLFormat =
 
 @implementation CDMNikeSyncer
 
-- (id)initWithNikeId:(NSUInteger)nid {
+@synthesize isSyncing, syncStatus;
+
+- (id)init {
   if ((self = [super init])) {
-    nikeId = nid;
-    appDelegate = (RunLogAppDelegate *)[[NSApplication sharedApplication] delegate];
+    syncStatus = @"";
+    isSyncing = NO;
   }
   
   return self;
@@ -57,10 +50,21 @@ static NSString * const kNikeRunListURLFormat =
   [super dealloc];
 }
 
+- (void)setNikeId:(NSUInteger)anId {
+  appDelegate = (RunLogAppDelegate *)[[NSApplication sharedApplication] delegate];
+  nikeId = anId;
+}
+
 - (void)finishSync {
   [runsToSync release];
   runsToSync = nil;
+  [self willChangeValueForKey:@"isSyncing"];
   isSyncing = NO;
+  [self didChangeValueForKey:@"isSyncing"];
+  [self willChangeValueForKey:@"syncStatus"];
+  syncStatus = @"";
+  [self didChangeValueForKey:@"syncStatus"];
+
   syncCursor = 0;
   [appDelegate saveAction:self];
   NSLog(@"finishSync");
@@ -70,6 +74,10 @@ static NSString * const kNikeRunListURLFormat =
   NSLog(@"syncStep");
   if (syncCursor < [runsToSync count]) {
     NSUInteger runId = [[runsToSync objectAtIndex:syncCursor] intValue];
+    [self willChangeValueForKey:@"syncStatus"];
+    [syncStatus release];
+    syncStatus = [[NSString stringWithFormat:@"Fetching run %lu", runId] retain];
+    [self didChangeValueForKey:@"syncStatus"];
     [self fetchRun:runId];
   } else {
     [self finishSync];
@@ -168,6 +176,12 @@ static NSString * const kNikeRunListURLFormat =
   NSURL *url = [NSURL URLWithString:runListURLStr];
   NSURLRequest *pageRequest = [NSURLRequest requestWithURL:url];
   
+  [self willChangeValueForKey:@"syncStatus"];
+  [syncStatus release];
+  syncStatus = @"Fetching run list";
+  [self didChangeValueForKey:@"syncStatus"];
+
+  
   [CDMURLFetcher fetch:pageRequest completionHandler:^(NSData *data, NSError *error) {
     if (error == nil) {
       NSError *error = nil;
@@ -211,7 +225,9 @@ static NSString * const kNikeRunListURLFormat =
     return;
   }
   NSLog(@"started sync");
+  [self willChangeValueForKey:@"isSyncing"];
   isSyncing = YES;
+  [self didChangeValueForKey:@"isSyncing"];
   [self fetchRunList];
 }
 

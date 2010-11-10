@@ -15,11 +15,17 @@
   NSUInteger nikeId;
   RunLogAppDelegate *appDelegate;
   BOOL isSyncing;
+  NSString *syncStatus;
   NSMutableArray *runsToSync;
   NSUInteger syncCursor;
 }
 
-- (id)initWithNikeId:(NSUInteger)nid;
+@property (nonatomic, readonly) BOOL isSyncing;
+@property (nonatomic, readonly) NSString *syncStatus;
+
+
+- (id)init;
+- (void)setNikeId:(NSUInteger)anId;
 
 - (void)sync;
 
