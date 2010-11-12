@@ -17,13 +17,15 @@
   double maximumValueForXAxis;
   double minimumValueForYAxis;
   double maximumValueForYAxis;
+  NSNumber *runId;
 }
 
-- (id)initWithExtendedData:(NSArray *)extendedData;
+- (id)initWithExtendedData:(NSArray *)extendedData runId:(NSNumber *)anId;
 
 @property (readonly, nonatomic) double minimumValueForXAxis;
 @property (readonly, nonatomic) double maximumValueForXAxis;
 @property (readonly, nonatomic) double minimumValueForYAxis;
 @property (readonly, nonatomic) double maximumValueForYAxis;
+@property (readonly, nonatomic) NSNumber *runId;
 
 @end

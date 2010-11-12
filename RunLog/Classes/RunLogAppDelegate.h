@@ -19,12 +19,15 @@
   NSManagedObjectModel *managedObjectModel;
   NSManagedObjectContext *managedObjectContext;
   NSMutableDictionary *runDataByRunId;
+  NSMutableDictionary *colorAssignmentsByRunId;
+  NSTableView *tableView;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet CPLayerHostingView *graphView;
 @property (assign) IBOutlet NSArrayController *runsController;
 @property (assign) IBOutlet CDMNikeSyncer *syncer;
+@property (assign) IBOutlet NSTableView *tableView;
 
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -32,6 +35,8 @@
 
 - (IBAction)saveAction:sender;
 - (IBAction)exportToPDF:(id)sender;
+
+- (NSColor *)colorForRunId:(NSNumber *)runId;
 
 @end
 

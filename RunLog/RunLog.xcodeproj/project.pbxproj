@@ -22,6 +22,7 @@
 		C6486E861238598000C6E29F /* CDMRunData.m in Sources */ = {isa = PBXBuildFile; fileRef = C6486E841238598000C6E29F /* CDMRunData.m */; };
 		C64D4989128320C3008BFD10 /* CDMCorePlot.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D4988128320C3008BFD10 /* CDMCorePlot.m */; };
 		C64D498C12832521008BFD10 /* CDMNikeSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D498B12832521008BFD10 /* CDMNikeSyncer.m */; };
+		C675F419128C7E9C0084206D /* CDMPlotLegendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C675F418128C7E9C0084206D /* CDMPlotLegendCell.m */; };
 		C6CB3ED01283CB0900C918A4 /* CDMDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CB3ECF1283CB0900C918A4 /* CDMDateTime.m */; };
 		C6DA047012736AE5006D5918 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DA046F12736AE5006D5918 /* CorePlot.framework */; };
 		C6DA047112736C42006D5918 /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6DA046F12736AE5006D5918 /* CorePlot.framework */; };
@@ -69,6 +70,8 @@
 		C64D4988128320C3008BFD10 /* CDMCorePlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMCorePlot.m; sourceTree = "<group>"; };
 		C64D498A12832521008BFD10 /* CDMNikeSyncer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMNikeSyncer.h; sourceTree = "<group>"; };
 		C64D498B12832521008BFD10 /* CDMNikeSyncer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMNikeSyncer.m; sourceTree = "<group>"; };
+		C675F417128C7E9C0084206D /* CDMPlotLegendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMPlotLegendCell.h; sourceTree = "<group>"; };
+		C675F418128C7E9C0084206D /* CDMPlotLegendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMPlotLegendCell.m; sourceTree = "<group>"; };
 		C6CB3ECE1283CB0900C918A4 /* CDMDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMDateTime.h; sourceTree = "<group>"; };
 		C6CB3ECF1283CB0900C918A4 /* CDMDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMDateTime.m; sourceTree = "<group>"; };
 		C6DA046F12736AE5006D5918 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = Library/Frameworks/CorePlot.framework; sourceTree = SDKROOT; };
@@ -116,6 +119,8 @@
 		C6486E401237F67100C6E29F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C675F417128C7E9C0084206D /* CDMPlotLegendCell.h */,
+				C675F418128C7E9C0084206D /* CDMPlotLegendCell.m */,
 				C626D041128A19FE00E9B72B /* CDMNikeRunAccessors.h */,
 				C626D03E128A0AD100E9B72B /* CDMSecs2MinTransformer.h */,
 				C626D03F128A0AD100E9B72B /* CDMSecs2MinTransformer.m */,
@@ -256,6 +261,7 @@
 				C64D498C12832521008BFD10 /* CDMNikeSyncer.m in Sources */,
 				C6CB3ED01283CB0900C918A4 /* CDMDateTime.m in Sources */,
 				C626D040128A0AD100E9B72B /* CDMSecs2MinTransformer.m in Sources */,
+				C675F419128C7E9C0084206D /* CDMPlotLegendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

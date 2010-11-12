@@ -10,4 +10,5 @@
 #import <CorePlot/CorePlot.h>
 #import "CDMRunData.h"
 
-extern CPXYGraph *CDMCreateGraph(NSArray *rds);
+extern CPXYGraph *CDMCreateGraph(NSArray *rds, 
+                                 NSMutableDictionary *colorAssignmentsByRunId);

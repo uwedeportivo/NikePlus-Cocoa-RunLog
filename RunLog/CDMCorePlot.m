@@ -8,9 +8,10 @@
 
 #import "CDMCorePlot.h"
 
-static NSArray *distinctColors;
+static NSArray *distinctCPColors;
+static NSArray *distinctNSColors;
 
-CPXYGraph *CDMCreateGraph(NSArray *rds) {
+CPXYGraph *CDMCreateGraph(NSArray *rds, NSMutableDictionary *colorAssignmentsByRunId) {
   CDMRunData *oneRunData = [rds objectAtIndex:0];
   
   double minimumValueForXAxis = oneRunData.minimumValueForXAxis;
@@ -144,8 +145,8 @@ CPXYGraph *CDMCreateGraph(NSArray *rds) {
   y.axisLabels = labelSet;
   y.majorTickLocations = majorTickSet;
   
-  if (distinctColors == nil) {
-    distinctColors = [[NSArray arrayWithObjects:
+  if (distinctCPColors == nil) {
+    distinctCPColors = [[NSArray arrayWithObjects:
                       [CPColor blueColor],
                       [CPColor greenColor],
                       [CPColor redColor],
@@ -158,6 +159,21 @@ CPXYGraph *CDMCreateGraph(NSArray *rds) {
                       [CPColor grayColor],
                       nil] retain];
   }
+  if (distinctNSColors == nil) {
+    distinctNSColors = [[NSArray arrayWithObjects:
+                         [NSColor blueColor],
+                         [NSColor greenColor],
+                         [NSColor redColor],
+                         [NSColor brownColor],
+                         [NSColor orangeColor],
+                         [NSColor cyanColor],
+                         [NSColor yellowColor],
+                         [NSColor magentaColor],
+                         [NSColor purpleColor],
+                         [NSColor grayColor],
+                         nil] retain];
+  }
+  
   NSMutableArray *plots = [NSMutableArray array];
   NSUInteger cursor = 0;
   for (CDMRunData *runData in rds) {
@@ -165,11 +181,13 @@ CPXYGraph *CDMCreateGraph(NSArray *rds) {
     linePlot.identifier = @"Run";
     linePlot.dataLineStyle.miterLimit = 1.0;
     linePlot.dataLineStyle.lineWidth = 3.0;
-    NSUInteger colorIndex = cursor % [distinctColors count];
-    linePlot.dataLineStyle.lineColor = [distinctColors objectAtIndex:colorIndex];
+    NSUInteger colorIndex = cursor % [distinctCPColors count];
+    linePlot.dataLineStyle.lineColor = [distinctCPColors objectAtIndex:colorIndex];
     linePlot.dataSource = runData;
     [graph addPlot:linePlot];
     [plots addObject:linePlot];
+    [colorAssignmentsByRunId setObject:[distinctNSColors objectAtIndex:colorIndex]
+                                forKey:runData.runId];
     cursor++;
   }
   

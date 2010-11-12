@@ -61,10 +61,11 @@ NSArray *CDMTransformAndSmoothRunData(NSArray *extendedData) {
 @implementation CDMRunData
 
 @synthesize minimumValueForXAxis, maximumValueForXAxis,
-            minimumValueForYAxis, maximumValueForYAxis;
+            minimumValueForYAxis, maximumValueForYAxis, runId;
 
-- (id)initWithExtendedData:(NSArray *)extendedData {
+- (id)initWithExtendedData:(NSArray *)extendedData runId:(NSNumber *)anId {
   if ((self = [super init])) {
+    runId = [anId retain];
     yData = [CDMTransformAndSmoothRunData(extendedData) retain];
     xData = CDMNumericArrayFromRange(NSMakeRange(0, [yData count]));
     minimumValueForXAxis = 0.0;
@@ -88,6 +89,7 @@ NSArray *CDMTransformAndSmoothRunData(NSArray *extendedData) {
 }
 
 - (void)dealloc {
+  [runId release];
   [yData release];
   [xData release];
   [super dealloc];

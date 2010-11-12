@@ -16,12 +16,13 @@
 #import "CDMDateTime.h"
 #import "CDMSecs2MinTransformer.h"
 #import "CDMNikeRunAccessors.h"
+#import "CDMPlotLegendCell.h"
 
 #import <CorePlot/CorePlot.h>
 
 @implementation RunLogAppDelegate
 
-@synthesize window, graphView, runsController, syncer;
+@synthesize window, graphView, runsController, syncer, tableView;
 
 + (void) initialize {
   [NSValueTransformer setValueTransformer: [[CDMSecs2MinTransformer new] autorelease]
@@ -30,7 +31,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   
+  [[tableView tableColumnWithIdentifier:@"graphColor"] setDataCell:[[[CDMPlotLegendCell alloc] init] autorelease]];
   runDataByRunId = [[NSMutableDictionary alloc] init];
+  colorAssignmentsByRunId = [[NSMutableDictionary alloc] init];
   
   [syncer setNikeId:617307368];
   
@@ -38,7 +41,7 @@
   
   [runsController addObserver: self
                    forKeyPath: @"selectionIndexes"
-                      options: NSKeyValueObservingOptionNew
+                      options: (NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld)
                       context: NULL];  
 }
 
@@ -59,10 +62,11 @@
   if ([keyPath isEqualTo:@"selectionIndexes"] && object == runsController) {
     if([[runsController selectedObjects] count] > 0) {
       NSArray *selectedRunData = [[runsController selectedObjects] map:^(id elem) {
-        CDMRunData *runData = (CDMRunData *)[runDataByRunId objectForKey:[elem runId]];
+        CDMRunData *runData = 
+            (CDMRunData *)[runDataByRunId objectForKey:[elem runId]];
         if (runData == nil) {
           NSArray *extendedData = [NSUnarchiver unarchiveObjectWithData:[elem extendedData]];
-          runData = [[[CDMRunData alloc] initWithExtendedData:extendedData] autorelease];
+          runData = [[[CDMRunData alloc] initWithExtendedData:extendedData runId:[elem runId]] autorelease];
           
           [runDataByRunId setObject:runData forKey:[elem runId]];
         } 
@@ -70,14 +74,21 @@
       }];
       
       [graphView.hostedLayer release];
-      CPXYGraph *graph = CDMCreateGraph(selectedRunData);
+      [colorAssignmentsByRunId removeAllObjects];
+      CPXYGraph *graph = CDMCreateGraph(selectedRunData, colorAssignmentsByRunId);
       graphView.hostedLayer = graph;
       [graph reloadData];
       [graphView needsDisplay]; 
-    } 
+    }
   }
+  NSIndexSet *graphColumnSet = [NSIndexSet indexSetWithIndex:[tableView columnWithIdentifier:@"graphColor"]];
+  
+  [tableView reloadDataForRowIndexes:[runsController selectionIndexes] columnIndexes:graphColumnSet];
 }
 
+- (NSColor *)colorForRunId:(NSNumber *)runId {
+  return [colorAssignmentsByRunId objectForKey:runId];  
+}
 
 // ---------------------------------------------------------------------------------------------
 
@@ -276,6 +287,7 @@
 - (void)dealloc {
   [runsController removeObserver:self forKeyPath:@"selectionIndexes"];
   [runDataByRunId release];
+  [colorAssignmentsByRunId release];
   [managedObjectContext release];
   [persistentStoreCoordinator release];
   [managedObjectModel release];
