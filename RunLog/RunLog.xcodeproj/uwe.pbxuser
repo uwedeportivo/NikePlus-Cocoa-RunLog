@@ -4,12 +4,64 @@
 		activeBuildConfigurationName = Debug;
 		activeExecutable = C6486E4A1237F67100C6E29F /* RunLog */;
 		activeTarget = C6486E471237F67100C6E29F /* RunLog */;
+		addToTargets = (
+			C6486E471237F67100C6E29F /* RunLog */,
+		);
 		codeSenseManager = C6486E3E1237F67100C6E29F /* Code sense */;
 		executables = (
 			C6486E4A1237F67100C6E29F /* RunLog */,
 		);
 		ignoreBreakpointsInProjectsDict = {
 		};
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					341,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					301,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 311217896;
+			PBXWorkspaceStateSaveDate = 311217896;
+		};
+		sourceControlManager = C6DC139B128CCEEE00C4B1DB /* Source Control */;
 		userBuildSettings = {
 		};
 	};
@@ -49,5 +101,15 @@
 		showTypeColumn = 0;
 		sourceDirectories = (
 		);
+	};
+	C6DC139B128CCEEE00C4B1DB /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
 	};
 }

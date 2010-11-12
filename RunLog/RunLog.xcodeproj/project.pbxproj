@@ -24,11 +24,35 @@
 		C64D498C12832521008BFD10 /* CDMNikeSyncer.m in Sources */ = {isa = PBXBuildFile; fileRef = C64D498B12832521008BFD10 /* CDMNikeSyncer.m */; };
 		C675F419128C7E9C0084206D /* CDMPlotLegendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C675F418128C7E9C0084206D /* CDMPlotLegendCell.m */; };
 		C6CB3ED01283CB0900C918A4 /* CDMDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = C6CB3ECF1283CB0900C918A4 /* CDMDateTime.m */; };
-		C6DA047012736AE5006D5918 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DA046F12736AE5006D5918 /* CorePlot.framework */; };
-		C6DA047112736C42006D5918 /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6DA046F12736AE5006D5918 /* CorePlot.framework */; };
 		C6DA04741275F3E8006D5918 /* CDMArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DA04731275F3E8006D5918 /* CDMArray.m */; };
 		C6DA04771275FF2E006D5918 /* CDMNumericLists.m in Sources */ = {isa = PBXBuildFile; fileRef = C6DA04761275FF2E006D5918 /* CDMNumericLists.m */; };
+		C6DC13AE128CCFD200C4B1DB /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6DC13A6128CCF1300C4B1DB /* CorePlot.framework */; };
+		C6DC13E6128CCFF100C4B1DB /* CorePlot.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6DC13A6128CCF1300C4B1DB /* CorePlot.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6DC13A5128CCF1300C4B1DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6DC139C128CCF1300C4B1DB /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = CorePlot;
+		};
+		C6DC13A7128CCF1300C4B1DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6DC139C128CCF1300C4B1DB /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0730F600109492D800E95162;
+			remoteInfo = UnitTests;
+		};
+		C6DC13A9128CCF3A00C4B1DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6DC139C128CCF1300C4B1DB /* CorePlot.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = CorePlot;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C6486E7E1238229500C6E29F /* CopyFiles */ = {
@@ -37,7 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C6DA047112736C42006D5918 /* CorePlot.framework in CopyFiles */,
+				C6DC13E6128CCFF100C4B1DB /* CorePlot.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,11 +98,11 @@
 		C675F418128C7E9C0084206D /* CDMPlotLegendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMPlotLegendCell.m; sourceTree = "<group>"; };
 		C6CB3ECE1283CB0900C918A4 /* CDMDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMDateTime.h; sourceTree = "<group>"; };
 		C6CB3ECF1283CB0900C918A4 /* CDMDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMDateTime.m; sourceTree = "<group>"; };
-		C6DA046F12736AE5006D5918 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = Library/Frameworks/CorePlot.framework; sourceTree = SDKROOT; };
 		C6DA04721275F3E8006D5918 /* CDMArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMArray.h; sourceTree = "<group>"; };
 		C6DA04731275F3E8006D5918 /* CDMArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMArray.m; sourceTree = "<group>"; };
 		C6DA04751275FF2E006D5918 /* CDMNumericLists.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMNumericLists.h; sourceTree = "<group>"; };
 		C6DA04761275FF2E006D5918 /* CDMNumericLists.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMNumericLists.m; sourceTree = "<group>"; };
+		C6DC139C128CCF1300C4B1DB /* CorePlot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePlot.xcodeproj; path = ../../coreplot/Source/framework/CorePlot.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6DA047012736AE5006D5918 /* CorePlot.framework in Frameworks */,
+				C6DC13AE128CCFD200C4B1DB /* CorePlot.framework in Frameworks */,
 				C6486E4C1237F67100C6E29F /* Cocoa.framework in Frameworks */,
 				C6486E821238583900C6E29F /* QuartzCore.framework in Frameworks */,
 			);
@@ -98,6 +122,7 @@
 		C6486E381237F67100C6E29F = {
 			isa = PBXGroup;
 			children = (
+				C6DC139C128CCF1300C4B1DB /* CorePlot.xcodeproj */,
 				C6486E671237F83700C6E29F /* NikePlus.icns */,
 				C6486E3F1237F67100C6E29F /* Models */,
 				C6486E401237F67100C6E29F /* Classes */,
@@ -169,7 +194,6 @@
 		C6486E431237F67100C6E29F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C6DA046F12736AE5006D5918 /* CorePlot.framework */,
 				C6486E811238583900C6E29F /* QuartzCore.framework */,
 				C6486E4B1237F67100C6E29F /* Cocoa.framework */,
 			);
@@ -180,6 +204,15 @@
 			isa = PBXGroup;
 			children = (
 				C6486E481237F67100C6E29F /* RunLog.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6DC139D128CCF1300C4B1DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C6DC13A6128CCF1300C4B1DB /* CorePlot.framework */,
+				C6DC13A8128CCF1300C4B1DB /* UnitTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,6 +232,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C6DC13AA128CCF3A00C4B1DB /* PBXTargetDependency */,
 			);
 			name = RunLog;
 			productName = RunLog;
@@ -223,12 +257,35 @@
 			mainGroup = C6486E381237F67100C6E29F;
 			productRefGroup = C6486E491237F67100C6E29F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C6DC139D128CCF1300C4B1DB /* Products */;
+					ProjectRef = C6DC139C128CCF1300C4B1DB /* CorePlot.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C6486E471237F67100C6E29F /* RunLog */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C6DC13A6128CCF1300C4B1DB /* CorePlot.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CorePlot.framework;
+			remoteRef = C6DC13A5128CCF1300C4B1DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C6DC13A8128CCF1300C4B1DB /* UnitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnitTests.octest;
+			remoteRef = C6DC13A7128CCF1300C4B1DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C6486E461237F67100C6E29F /* Resources */ = {
@@ -266,6 +323,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C6DC13AA128CCF3A00C4B1DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CorePlot;
+			targetProxy = C6DC13A9128CCF3A00C4B1DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C6486E4F1237F67100C6E29F /* InfoPlist.strings */ = {
@@ -331,6 +396,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -349,6 +418,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
