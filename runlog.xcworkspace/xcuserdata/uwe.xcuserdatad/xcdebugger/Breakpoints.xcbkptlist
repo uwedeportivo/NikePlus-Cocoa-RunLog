@@ -8,11 +8,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "311212507.074752"
+         timestampString = "311638941.560029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "-applicationDidFinishLaunching:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -22,11 +22,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "311212507.074752"
+         timestampString = "311638941.560029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "-applicationDidFinishLaunching:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -50,11 +50,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "311214359.088391"
+         timestampString = "311640669.406348"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "228"
-         endingLineNumber = "228"
+         startingLineNumber = "315"
+         endingLineNumber = "315"
          landmarkName = "-saveAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -120,11 +120,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "311213136.115009"
+         timestampString = "311638941.560029"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
          landmarkType = "5">
       </FileBreakpoint>

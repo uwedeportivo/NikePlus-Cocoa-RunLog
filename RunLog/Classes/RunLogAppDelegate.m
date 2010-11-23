@@ -22,7 +22,8 @@
 
 @implementation RunLogAppDelegate
 
-@synthesize window, graphView, runsController, syncer, tableView;
+@synthesize window, graphView, runsController,
+            syncer, tableView;
 
 + (void) initialize {
   [NSValueTransformer setValueTransformer: [[CDMSecs2MinTransformer new] autorelease]
@@ -89,6 +90,12 @@
 - (NSColor *)colorForRunId:(NSNumber *)runId {
   return [colorAssignmentsByRunId objectForKey:runId];  
 }
+
+- (IBAction)syncWithNike:(id)sender {
+  [syncer sync];
+}
+
+
 
 // ---------------------------------------------------------------------------------------------
 

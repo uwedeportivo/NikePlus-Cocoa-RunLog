@@ -34,7 +34,8 @@
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
 - (IBAction)saveAction:sender;
-- (IBAction)exportToPDF:(id)sender;
+- (IBAction)syncWithNike:(id)sender;
+
 
 - (NSColor *)colorForRunId:(NSNumber *)runId;
 

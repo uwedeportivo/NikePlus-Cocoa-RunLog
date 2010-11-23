@@ -254,7 +254,7 @@
 						<dict>
 							<key>PBXSmartGroupTreeModuleColumnWidthsKey</key>
 							<array>
-								<real>186</real>
+								<real>287</real>
 							</array>
 							<key>PBXSmartGroupTreeModuleColumnsKey_v4</key>
 							<array>
@@ -266,22 +266,17 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>C6486E381237F67100C6E29F</string>
-								<string>C6DC139C128CCF1300C4B1DB</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>C6DC13E7128CD00500C4B1DB</string>
-								<string>C6DC13E8128CD00500C4B1DB</string>
-								<string>C6DC13E9128CD00500C4B1DB</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>12</integer>
-									<integer>11</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {186, 445}}</string>
+							<string>{{0, 0}, {287, 617}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -293,19 +288,19 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {203, 463}}</string>
+						<string>{{0, 0}, {304, 635}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
-							<real>186</real>
+							<real>287</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>978 135 788 504 0 0 1920 1178 </string>
+						<string>70 138 981 676 0 0 1920 1178 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
 					<key>Proportion</key>
-					<string>203pt</string>
+					<string>304pt</string>
 				</dict>
 				<dict>
 					<key>Dock</key>
@@ -335,14 +330,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {580, 277}}</string>
+								<string>{{0, 0}, {672, 366}}</string>
 								<key>RubberWindowFrame</key>
-								<string>978 135 788 504 0 0 1920 1178 </string>
+								<string>70 138 981 676 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>277pt</string>
+							<string>366pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -355,18 +350,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 282}, {580, 181}}</string>
+								<string>{{0, 371}, {672, 264}}</string>
 								<key>RubberWindowFrame</key>
-								<string>978 135 788 504 0 0 1920 1178 </string>
+								<string>70 138 981 676 0 0 1920 1178 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>181pt</string>
+							<string>264pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>580pt</string>
+					<string>672pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -381,9 +376,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>C6DC1396128CCEEE00C4B1DB</string>
+				<string>C657E5F81291FFE3000DBB48</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>C6DC1397128CCEEE00C4B1DB</string>
+				<string>C657E5F91291FFE3000DBB48</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -525,7 +520,7 @@
 		<string>/Users/uwe/projects/runlog/RunLog/RunLog.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>978 135 788 504 0 0 1920 1178 </string>
+	<string>70 138 981 676 0 0 1920 1178 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -602,7 +597,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>C6DC1399128CCEEE00C4B1DB</string>
-				<string>C6DC139A128CCEEE00C4B1DB</string>
+				<string>C657E5FA1291FFE3000DBB48</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
