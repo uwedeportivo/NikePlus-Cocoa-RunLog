@@ -8,11 +8,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "311638941.560029"
+         timestampString = "314684502.278667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
          landmarkName = "-applicationDidFinishLaunching:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -22,11 +22,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "311638941.560029"
+         timestampString = "314684502.278667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
          landmarkName = "-applicationDidFinishLaunching:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -50,11 +50,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "311640669.406348"
+         timestampString = "314684502.278667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "315"
-         endingLineNumber = "315"
+         startingLineNumber = "336"
+         endingLineNumber = "336"
          landmarkName = "-saveAction:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -120,12 +120,68 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "RunLog/Classes/RunLogAppDelegate.m"
-         timestampString = "311638941.560029"
+         timestampString = "314684502.278667"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
          landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RunLog/Classes/CDMTwitterController.m"
+         timestampString = "314575493.533043"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "251"
+         endingLineNumber = "251"
+         landmarkName = "-tweet"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RunLog/Classes/RunLogAppDelegate.m"
+         timestampString = "314684502.278667"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
+         landmarkName = "-filter:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RunLog/Classes/RunLogAppDelegate.m"
+         timestampString = "314684502.278667"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
+         landmarkName = "-filter:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "RunLog/Classes/CDMPredicateBuilder.m"
+         timestampString = "314733333.230677"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "247"
+         endingLineNumber = "247"
+         landmarkName = "-workOnRangeLeafAssembly:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

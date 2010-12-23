@@ -9,12 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import <CorePlot/CorePlot.h>
 #import "CDMNikeSyncer.h"
+#import "CDMPredicateBuilder.h"
 
 @interface RunLogAppDelegate : NSObject <NSApplicationDelegate> {
   CPLayerHostingView *graphView;
   NSWindow *window;
   NSArrayController *runsController;
   CDMNikeSyncer *syncer;
+  CDMPredicateBuilder *predicateBuilder;
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
   NSManagedObjectModel *managedObjectModel;
   NSManagedObjectContext *managedObjectContext;
@@ -35,7 +37,7 @@
 
 - (IBAction)saveAction:sender;
 - (IBAction)syncWithNike:(id)sender;
-
+- (IBAction)filter:sender;
 
 - (NSColor *)colorForRunId:(NSNumber *)runId;
 

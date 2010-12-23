@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme>
    <BuildAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       parallelizeBuildables = "NO">
    </BuildAction>
    <TestAction
@@ -24,7 +24,6 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      persistedCurrentAnalysisToolIdentifier = ""
       displayScaleIsEnabled = "NO"
       displayScale = "1.00"
       shouldUseLaunchSchemeArgsEnv = "YES">

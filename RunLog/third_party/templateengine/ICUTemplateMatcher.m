@@ -6,7 +6,7 @@
 //
 
 #import "ICUTemplateMatcher.h"
-#import "RegexKitLite.h"
+#import <ParseKit/RegexKitLite.h>
 
 
 @implementation ICUTemplateMatcher

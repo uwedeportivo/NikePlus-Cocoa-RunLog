@@ -21,7 +21,7 @@
 
 @implementation CDMTwitterController
 
-@synthesize window, twitterProgress, twitterProgressLabel, twitterProgressIndicator, twitterPin, twitterPinTextField, twitterPinStoreInKeychain;
+@synthesize window, twitterProgress, twitterProgressLabel, twitterProgressIndicator, twitterPin, twitterPinTextField, twitterPinStoreInKeychain, twitterBubble, twitterConfirm;
 
 - (id)init {
   if ((self = [super init])) {
@@ -107,11 +107,15 @@
   [NSApp endSheet:twitterProgress];
 }
 
+- (IBAction)cancelTwitterConfirm:(id)sender {
+  [NSApp endSheet:twitterConfirm];
+}
+
 - (void)didEndSheet:(NSWindow *)sheet 
          returnCode:(NSInteger)returnCode 
         contextInfo:(void *)contextInfo {
-  if (sheet == twitterProgress) {
-    [twitterProgress orderOut:self];
+  if (sheet == twitterProgress || sheet == twitterConfirm) {
+    [sheet orderOut:self];
   } else if (sheet == twitterPin) {
     [twitterPin orderOut:self];
     [twitterProgressLabel setStringValue:@"Acquiring access token from Twitter"];
@@ -243,14 +247,28 @@
   [templateEngine processTemplateInFileAtPath:templatePath withVariables:variables];
   
   NSLog(@"Tweeting %@", tweet);
+
+  [twitterBubble setStringValue:tweet];
+  
+  [NSApp beginSheet: twitterConfirm
+   modalForWindow: window
+   modalDelegate: self
+   didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
+   contextInfo: tweet];
+}
+
+- (IBAction)confirmTweet:(id)sender {
+  [NSApp endSheet:twitterConfirm];
+  NSString *tweet = [twitterBubble stringValue];
+  NSLog(@"Tweeting %@", tweet);
   
   [twitterProgressLabel setStringValue:@"Tweeting..."];
   [twitterProgressIndicator startAnimation:self];
   [NSApp beginSheet: twitterProgress
-   modalForWindow: window
-   modalDelegate: self
-   didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
-   contextInfo: nil];
+     modalForWindow: window
+      modalDelegate: self
+     didEndSelector: @selector(didEndSheet:returnCode:contextInfo:)
+        contextInfo: nil];
   [twitterEngine sendUpdate:tweet];
 }
 

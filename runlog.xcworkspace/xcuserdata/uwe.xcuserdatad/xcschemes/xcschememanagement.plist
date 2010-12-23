@@ -4,18 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>RunLog.xcscheme</key>
+		<key>Deploy of RunLog.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>C6486E471237F67100C6E29F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>1</integer>
 		</dict>
 	</dict>
 </dict>

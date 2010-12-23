@@ -12,7 +12,6 @@
 #import "MGTemplateEngine.h"
 #import "MGTwitterEngineDelegate.h"
 
-
 @interface CDMTwitterController : NSObject <MGTwitterEngineDelegate> {
 @private
   NSWindow *window;
@@ -30,6 +29,8 @@
   NSString *templatePath;
   NSNumberFormatter *numberFormatter;
   NSDateFormatter *dateFormatter;
+  NSTextField *twitterBubble;
+  NSWindow *twitterConfirm;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -39,9 +40,13 @@
 @property (assign) IBOutlet NSWindow *twitterPin;
 @property (assign) IBOutlet NSTextField *twitterPinTextField;
 @property (assign) IBOutlet NSButton *twitterPinStoreInKeychain;
+@property (assign) IBOutlet NSTextField *twitterBubble;
+@property (assign) IBOutlet NSWindow *twitterConfirm;
 
 - (IBAction)cancelTwitterProgress:(id)sender;
 - (IBAction)tweet:(id)sender;
+- (IBAction)confirmTweet:(id)sender;
+- (IBAction)cancelTwitterConfirm:(id)sender;
 
 - (IBAction)donePin:(id)sender;
 

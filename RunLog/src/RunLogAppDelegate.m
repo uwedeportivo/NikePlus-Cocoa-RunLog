@@ -18,6 +18,7 @@
 #import "CDMNikeRunAccessors.h"
 #import "CDMPlotLegendCell.h"
 
+
 #import <CorePlot/CorePlot.h>
 
 @implementation RunLogAppDelegate
@@ -32,6 +33,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   
+  NSEntityDescription *entity = 
+   [NSEntityDescription 
+    entityForName:@"NikeRun" inManagedObjectContext:managedObjectContext];
+  
+  predicateBuilder = [[CDMPredicateBuilder alloc] initWithEntity:entity];
+  
   [[tableView tableColumnWithIdentifier:@"graphColor"] setDataCell:[[[CDMPlotLegendCell alloc] init] autorelease]];
   runDataByRunId = [[NSMutableDictionary alloc] init];
   colorAssignmentsByRunId = [[NSMutableDictionary alloc] init];
@@ -39,6 +46,10 @@
   [syncer setNikeId:617307368];
   
   [syncer sync];
+  
+  NSSortDescriptor *sd = [[NSSortDescriptor alloc] initWithKey:@"startTime" ascending:NO];
+  [runsController setSortDescriptors:[NSArray arrayWithObject:sd]];
+  [sd release];
   
   [runsController addObserver: self
                    forKeyPath: @"selectionIndexes"
@@ -95,6 +106,15 @@
   [syncer sync];
 }
 
+- (IBAction)filter:sender {
+  NSString *query = [sender stringValue];
+    
+  NSError *error = nil;
+  
+  [runsController 
+   fetchWithRequest:[predicateBuilder buildFromQuery:query] 
+   merge:NO error:&error];
+}
 
 
 // ---------------------------------------------------------------------------------------------
@@ -298,6 +318,7 @@
   [managedObjectContext release];
   [persistentStoreCoordinator release];
   [managedObjectModel release];
+  [predicateBuilder release];
   [super dealloc];
 }
 

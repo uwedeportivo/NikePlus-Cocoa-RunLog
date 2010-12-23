@@ -1,0 +1,24 @@
+fastest 2 in May 2010
+slowest 3
+first 2
+last 2
+last month
+last week
+last year
+longer than 5 km
+shorter than 20 min
+all but last 2
+all but slowest, fastest
+
+date -> "in" <rest of input>
+
+top -> ("fastest" | "slowest" | "first" | "last") (INT | "month" | "week" | "year")
+
+rangeleaf -> ("longer" | "shorter") "than" INT ("km" | "min")
+
+range -> rangeleaf ("and" rangeleaf)*
+
+leaf -> (top | range)
+
+composite -> ("all" "but")? leaf ("," leaf)* (date)?
+

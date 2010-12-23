@@ -60,8 +60,6 @@
         SecKeychainItemFreeContent(&list, password);
         
     } else {
-		// TODO find out why this always works in i386 and always fails on ppc
-		NSLog(@"Error from SecKeychainItemCopyContent: %d", status);
         return nil;
     }
     
