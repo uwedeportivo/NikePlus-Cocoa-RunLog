@@ -43,7 +43,11 @@ The features here are small enough that I can tackle them as a hobby without bur
 
 ## Building
 
-You need to provide CorePlot.framework and ParseKit.framework. Everything else is included.
+You need CorePlot.framework and ParseKit.framework to build the app. The XCode project assumes their location is in /Users/uwe/Library/Frameworks. You need to change that and point it to where you installed the two frameworks. Everything else is included.
+
+You need your own Consumer key and Consumer secret from Twitter, if you want to use the publish feature. Enter those in the file CDMTwitter.m. The values that are currently there are placeholders and won't work.
+
+You need your own Nike ID. Presumably you are interested in this app because you are a runner and use the NikePlus equipment, so you should have your own Nike ID and also make sure your Nike profile is public. Enter your ID in the file RunLogAppDelegate.m. Eventually I will provide user preferences that lets you enter the Nike ID there instead of in code. The current Nike ID is mine. It's ok to leave that in there, but you will only see my runs instead of yours then. 
 
 ## Language for filtering runs
 
