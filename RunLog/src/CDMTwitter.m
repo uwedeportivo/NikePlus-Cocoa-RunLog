@@ -8,7 +8,7 @@
 
 #import "CDMTwitter.h"
 
-NSString * const kCDMTwitterConsumerKey = @"gdcoXGJ7fT98eyh39W0Lgg";
-NSString * const kCDMTwitterConsumerSecret = @"3OEOhp04e9h1KrZ7SI1nRRqIVGyfhrfZuoav5qb5HkE";
+NSString * const kCDMTwitterConsumerKey = @"yDEXJvFSiNCvlSUuI6WZw";
+NSString * const kCDMTwitterConsumerSecret = @"MwH5fAuku4qiZK4neWJxJmZdAOctwFEZYhp8z1e1Pw";
 NSString * const kCDMAppName = @"codemanic.RunLog";
 NSString * const kCDMTwitterServiceProviderName = @"Twitter";

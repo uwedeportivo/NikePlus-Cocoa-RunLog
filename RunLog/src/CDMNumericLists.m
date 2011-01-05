@@ -20,7 +20,7 @@ NSUInteger CDMNumericConvolve(double *values, NSUInteger valuesSize,
     double accumulator = 0.0;
     
     for (NSUInteger j = 0; j < kernelSize; j++) {
-      accumulator += values[i + j] * kernel[kernelSize - j];
+      accumulator += values[i + j] * kernel[kernelSize - j - 1];
     }
     values[i] = accumulator;
   }
