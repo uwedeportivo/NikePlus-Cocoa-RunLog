@@ -12,6 +12,7 @@
 @interface CDMRunData : NSObject <CPPlotDataSource> {
 @private
   NSArray *yData;
+  NSArray *flippedYData;
   NSArray *xData;
   double minimumValueForXAxis;
   double maximumValueForXAxis;
@@ -21,6 +22,8 @@
 }
 
 - (id)initWithExtendedData:(NSArray *)extendedData runId:(NSNumber *)anId;
+
+- (void)flipYForRangeMin:(double)minY max:(double)maxY;
 
 @property (readonly, nonatomic) double minimumValueForXAxis;
 @property (readonly, nonatomic) double maximumValueForXAxis;

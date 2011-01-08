@@ -8,6 +8,7 @@
 
 #import "CDMRunData.h"
 #import "CDMNumericLists.h"
+#import "CDMArray.h"
 
 const double CDMGaussianKernel[] = { 
   0.0663417, 0.0794254, 0.091361, 0.10097, 0.107213, 0.109379,
@@ -36,14 +37,6 @@ NSArray *CDMTransformAndSmoothRunData(NSArray *extendedData) {
     
   count = CDMNumericCorrelate(values, count, CDMMovingAverageKernel, 6);
   count = CDMNumericConvolve(values, count, CDMGaussianKernel, 11);
-  
-  double min = CDMNumericMin(values, count);
-  double max = CDMNumericMax(values, count);
-  
-  CDMNumericMap(values, count, ^(double x) {
-    return min + max - x;
-  });
-  
 
   id *temp = (id *)malloc(count * sizeof(id));
   
@@ -66,6 +59,7 @@ NSArray *CDMTransformAndSmoothRunData(NSArray *extendedData) {
   if ((self = [super init])) {
     runId = [anId retain];
     yData = [CDMTransformAndSmoothRunData(extendedData) retain];
+    flippedYData = nil;
     xData = CDMNumericArrayFromRange(NSMakeRange(0, [yData count]));
     minimumValueForXAxis = 0.0;
     maximumValueForXAxis = (double) [yData count];
@@ -90,6 +84,7 @@ NSArray *CDMTransformAndSmoothRunData(NSArray *extendedData) {
 - (void)dealloc {
   [runId release];
   [yData release];
+  [flippedYData release];
   [xData release];
   [super dealloc];
 }
@@ -104,8 +99,25 @@ NSArray *CDMTransformAndSmoothRunData(NSArray *extendedData) {
   if (fieldEnum == CPScatterPlotFieldX) {
     return [xData subarrayWithRange:indexRange];
   } else {
-    return [yData subarrayWithRange:indexRange];
+    return [flippedYData subarrayWithRange:indexRange];
   }
 }
+
+- (void)flipYForRangeMin:(double)minY max:(double)maxY {
+  if (flippedYData != nil) {
+    [flippedYData release];
+    flippedYData = nil;
+  }
+  
+  flippedYData = [yData map:^(id obj) {
+    double v = [obj doubleValue];
+    
+    v = minY + maxY - v;
+    return [NSNumber numberWithDouble:v];
+  }];
+  [flippedYData retain];
+}
+
+
 
 @end

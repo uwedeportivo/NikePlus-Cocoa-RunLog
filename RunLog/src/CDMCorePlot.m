@@ -33,6 +33,10 @@ CPXYGraph *CDMCreateGraph(NSArray *rds, NSMutableDictionary *colorAssignmentsByR
       maximumValueForYAxis = runData.maximumValueForYAxis;
     }
   }
+  
+  for (CDMRunData *runData in rds) {
+    [runData flipYForRangeMin:minimumValueForYAxis max:maximumValueForYAxis];
+  }
 
   CPXYGraph *graph = [(CPXYGraph *)[CPXYGraph alloc] initWithFrame:CGRectZero];
   
