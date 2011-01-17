@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSData *extendedData;
 @property (nonatomic, retain) NSNumber *runId;
 @property (nonatomic, retain) NSDate *startTime;
+@property (nonatomic, retain) NSNumber *pace;
 
 @end

@@ -118,6 +118,11 @@ static NSString * const kNikeRunListURLFormat =
   error = nil;
   nikeRun.startTime = CDMParseDateString([xmlDoc textAtTag:@"startTime" error:&error]);
   
+  error = nil;
+  nikeRun.pace = 
+    [NSNumber numberWithDouble:
+       ([nikeRun.duration doubleValue] / (60000.0 * [nikeRun.distance doubleValue]))];
+  
   NSLog(@"saveRun saved %@", nikeRun);
   syncCursor++;
   [self syncStep];

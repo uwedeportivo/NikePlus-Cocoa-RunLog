@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSPredicate *predicate;
 @property (nonatomic, assign) BOOL isComplement;
 @property (nonatomic, assign) NSUInteger limit;
+@property (nonatomic, retain) NSSortDescriptor *sortDescriptor;
 
 + (id)target;
 
@@ -97,6 +98,7 @@
 
 - (void)workOnAllButAssembly:(PKAssembly *)assembly;
 - (void)workOnRangeLeafAssembly:(PKAssembly *)assembly;
+- (void)workOnTopAssembly:(PKAssembly *)assembly;
 
 @end
 
@@ -132,8 +134,17 @@
   NSLog(@"parsed successfully");
   NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
   
+  ParserTarget *target = [parsedAssembly target];
   [fetchRequest setEntity:entity];
-  [fetchRequest setPredicate:[[parsedAssembly target] predicate]];
+  [fetchRequest setPredicate:[target predicate]];
+  
+  if (target.limit > 0) {
+    [fetchRequest setFetchLimit:target.limit];
+  }
+  
+  if (target.sortDescriptor != nil) {
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObject:target.sortDescriptor]];
+  }
   return fetchRequest;
 }
 
@@ -169,6 +180,7 @@
   PKSequence *topParser = [PKSequence sequence];
   [topParser add:attributeParser];
   [topParser add:optionalQuantifierParser];
+  [topParser setAssembler:self selector:@selector(workOnTopAssembly:)];
   return topParser;
 }
 
@@ -277,6 +289,35 @@
   
   ParserTarget *target = (ParserTarget *)[assembly target];
   target.predicate = predicate;
+}
+
+- (void)workOnTopAssembly:(PKAssembly *)assembly {
+  PKToken *limitToken = nil;
+  PKToken *sortToken = nil;
+  
+  limitToken = [assembly pop];
+  
+  if ([limitToken isNumber]) {
+    sortToken = [assembly pop];
+  } else {
+    sortToken = limitToken;
+    limitToken = nil;
+  }
+  ParserTarget *target = (ParserTarget *)[assembly target];
+  
+  if (limitToken != nil) {
+    target.limit = [[limitToken value] unsignedIntegerValue]; 
+  }
+  
+  if ([[sortToken stringValue] caseInsensitiveCompare:@"fastest"] == NSOrderedSame) {
+    target.sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pace" ascending:YES];
+  } else if ([[sortToken stringValue] caseInsensitiveCompare:@"slowest"] == NSOrderedSame) {
+    target.sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pace" ascending:NO];
+  } else if ([[sortToken stringValue] caseInsensitiveCompare:@"longest"] == NSOrderedSame) {
+    target.sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:NO];
+  } else if ([[sortToken stringValue] caseInsensitiveCompare:@"shortest"] == NSOrderedSame) {
+    target.sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"distance" ascending:YES];
+  }
 }
 
 @end
