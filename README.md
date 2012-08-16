@@ -6,13 +6,13 @@ RunLog.app is a simple Cocoa app that shows your NikePlus runs in a table view a
 
 Please visit [Nikerunning](http://nikerunning.nike.com/nikeplus/) for the official view of your running data. This application is not produced by, endorsed by or in any way connected to Nike, Inc. Nike, Nike+, Nikerunning are trademarks of Nike, Inc.
 
-Interesting parts of the implementation have been described on my blog:
+Interesting parts of the implementation have been described here:
 
 * [Cocoa Part 1](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/nikeruns-in-cocoa,-part-1)
 * [Cocoa Part 2](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/nikeruns-in-cocoa,-part-2)
 * [Cocoa Part 3](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/nikeruns-in-cocoa,-part-3)
 
-Parts of the source code is a port of an older incarnation of the same functionality written as a command-line Haskell program. Details are also on my blog:
+Parts of the source code is a port of an older incarnation of the same functionality written as a command-line Haskell program. Details here:
 
 * [Haskell Part 1](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs-part1:-numeric-lists)
 * [Haskell Part 2](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-2:-google-charts)

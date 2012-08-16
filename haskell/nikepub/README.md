@@ -1,6 +1,6 @@
-nikepub
+# nikepub
 
-INTRODUCTION
+## INTRODUCTION
 
 nikepub is a simple commandline program that given a Nike+ user id will fetch the
 most recent Nike+ run and publish it to any blog and/or Twitter account.
@@ -9,15 +9,16 @@ for the blog entry title, body and Twitter status update. Any blogging
 system with XML-RPC support for metaWeblog.newPost (like WordPress or MovableType)
 is supported.
 
-A description of the implementation can be found in this series of blog posts:
+A description of the implementation can be found here:
 
-http://www.codemanic.com/uwe/2009/05/publishing-nike-runs-part-1-numeric-lists.html
-http://www.codemanic.com/uwe/2009/06/publishing-nike-runs-part-2-google-charts.html
-http://www.codemanic.com/uwe/2009/06/publishing-nike-runs-part-3-handling-xml.html
-http://www.codemanic.com/uwe/2009/06/publishing-nike-runs-part-4-string-templates.html
-http://www.codemanic.com/uwe/2009/06/publishing-nike-runs-part-5-blogging-and-twitter.html
+* [Haskell Part 1](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs-part1:-numeric-lists)
+* [Haskell Part 2](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-2:-google-charts)
+* [Haskell Intermission](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-intermission:-flip-id)
+* [Haskell Part 3](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-3:-handling-xml)
+* [Haskell Part 4](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-4:-string-templates)
+* [Haskell Part 5](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-5:-blogging-and-twitter)
 
-INSTALLATION
+## INSTALLATION
 
 nikepub comes as a cabal package so doing 
 
@@ -27,7 +28,7 @@ $ runhaskell Setup install
 
 in the untarred package directory will install nikepub in $HOME/bin.
 
-USAGE
+## USAGE
 
 Example command line flags (fill in values where you see <value description>s):
 
@@ -61,6 +62,3 @@ If the --draft flag is present then the blog entry is not published but sent as 
 The flag --airport allows for the specification of an airport code. It is used to fetch the weather conditions
 during the run. nikepub must be executed within 90 minutes of the run start time for it to fetch the weather.
 
-BUGS, SUGGESTIONS, COMMENTS
-
-Please send to uwe@codemanic.com
