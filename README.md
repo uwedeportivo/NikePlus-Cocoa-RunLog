@@ -8,18 +8,18 @@ Please visit [Nikerunning](http://nikerunning.nike.com/nikeplus/) for the offici
 
 Interesting parts of the implementation have been described on my blog:
 
-* [Cocoa Part 1](http://uwedeportivo.tumblr.com/post/1421387356/nikeruns-in-cocoa-part-1)
-* [Cocoa Part 2](http://uwedeportivo.tumblr.com/post/1463149809/nikeruns-in-cocoa-part-2)
-* [Cocoa Part 3](http://uwedeportivo.tumblr.com/post/1526692405/nikeruns-in-cocoa-part-3)
+* [Cocoa Part 1](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/nikeruns-in-cocoa,-part-1)
+* [Cocoa Part 2](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/nikeruns-in-cocoa,-part-2)
+* [Cocoa Part 3](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/nikeruns-in-cocoa,-part-3)
 
 Parts of the source code is a port of an older incarnation of the same functionality written as a command-line Haskell program. Details are also on my blog:
 
-* [Haskell Part 1](http://uwedeportivo.tumblr.com/post/529205380/publishing-nike-runs-part-1-numeric-lists)
-* [Haskell Part 2](http://uwedeportivo.tumblr.com/post/540639058/publishing-nike-runs-part-2-google-charts)
-* [Haskell Intermission](http://uwedeportivo.tumblr.com/post/529211202/publishing-nike-runs-intermission-flip-id)
-* [Haskell Part 3](http://uwedeportivo.tumblr.com/post/540645847/publishing-nike-runs-part-3-handling-xml)
-* [Haskell Part 4](http://uwedeportivo.tumblr.com/post/540655308/publishing-nike-runs-part-4-string-templates)
-* [Haskell Part 5](http://uwedeportivo.tumblr.com/post/551822645/publishing-nike-runs-part-5-blogging-and-twitter)
+* [Haskell Part 1](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs-part1:-numeric-lists)
+* [Haskell Part 2](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-2:-google-charts)
+* [Haskell Intermission](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-intermission:-flip-id)
+* [Haskell Part 3](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-3:-handling-xml)
+* [Haskell Part 4](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-4:-string-templates)
+* [Haskell Part 5](https://github.com/uwedeportivo/NikePlus-Cocoa-RunLog/wiki/publishing-nike-runs,-part-5:-blogging-and-twitter)
 
 ## Why ?
 
@@ -93,7 +93,7 @@ Source code in ./RunLog/third\_party is under the respective license of each thi
 
 * * *
 
-[Uwe Hoffmann](http://uwedeportivo.tumblr.com)
+[Uwe Hoffmann]()
 
 
 

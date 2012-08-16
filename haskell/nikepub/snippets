@@ -1,0 +1,5 @@
+let jsv = fromRight $ runGetJSON readJSObject "{\"width\":600,\"height\":200}"
+let uno (JSObject o) = fromJSObject o
+let unn (JSRational _ n) = fromInteger . round $ n
+
+unn $ fromJust $ lookup "width" $ uno jsv

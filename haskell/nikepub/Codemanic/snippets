@@ -1,0 +1,17 @@
+  setAxisLabelPositions [[0, 50, 100], [50]] $
+  setAxisLabels [["5", "4", "3"], ["pace (min/km)"]] $
+  setAxisTypes [AxisLeft, AxisLeft] $
+
+
+ NikeRun(..)
+
+data NikeRun = NikeRun { 
+  runId :: Int,
+  extendedData :: [Double],
+  calories :: Double,
+  startTime :: UTCTime
+} deriving (Eq)
+
+instance Show NikeRun where
+  show (NikeRun {runId = d, extendedData = _, calories = _, startTime = t}) = 
+     "NikeRun {" ++ show d ++ ", " ++ formatTime defaultTimeLocale "%d/%m/%Y %H:%M:%S" t ++ "}"

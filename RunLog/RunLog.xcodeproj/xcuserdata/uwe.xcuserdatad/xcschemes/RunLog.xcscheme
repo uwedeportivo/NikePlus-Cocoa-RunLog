@@ -1,46 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Scheme>
+<Scheme
+   version = "1.3">
    <BuildAction
-      buildConfiguration = "Release"
-      parallelizeBuildables = "NO">
+      parallelizeBuildables = "NO"
+      buildImplicitDependencies = "YES">
    </BuildAction>
    <TestAction
-      failureAction = "0">
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+      </Testables>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
-      loadSymbolsForSpecifiedModules = "NO"
       displayScaleIsEnabled = "NO"
-      displayScale = "1.00">
+      displayScale = "1.00"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug">
       <BuildableProductRunnable>
-         <BuildableProductReference
+         <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C6486E471237F67100C6E29F"
+            BuildableName = "RunLog.app"
+            BlueprintName = "RunLog"
             ReferencedContainer = "container:RunLog.xcodeproj">
-         </BuildableProductReference>
+         </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      persistedCurrentAnalysisToolIdentifier = ""
       displayScaleIsEnabled = "NO"
       displayScale = "1.00"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release">
       <BuildableProductRunnable>
-         <BuildableProductReference
+         <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C6486E471237F67100C6E29F"
+            BuildableName = "RunLog.app"
+            BlueprintName = "RunLog"
             ReferencedContainer = "container:RunLog.xcodeproj">
-         </BuildableProductReference>
+         </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
-   <ArchiveAction>
-      <ArchivingStrategy
-         StrategyType = "Xcode.IDEStandardArchivingStrategies.ArchivingStrategyType.DiskImage">
-         <StrategyContent>
-         </StrategyContent>
-      </ArchivingStrategy>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

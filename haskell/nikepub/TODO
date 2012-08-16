@@ -1,0 +1,3 @@
+- runs flag comma-separated list of (-x -> most recent x runs, x -> run with id x, +x -> first x runs)
+- chart preprocessor (smoothing options in chart declaration)
+- better error handling
